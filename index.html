@@ -92,53 +92,38 @@
                 <div class="clearfix"></div>
             </div>
             <br>
-            <div class="text-center">
-                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px; direction: rtl; padding: 10px; border: 1px solid #ccc; border-radius: 10px; background: #f8f9fa;">
-                    <div style="display: flex; justify-content: space-between; width: 100%;">
-                        <span>ساب لینک پیشنهادی:</span>
-                        <a href="#" onclick="copyToClipboard('https://odd-unit-c94a.mahdi021zamani.workers.dev/#mahdizamani.conf')">کپی لینک</a>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; width: 100%;">
-                        <span>مخصوص شرایط اختصاصی برای اتصال امن‌تر:</span>
-                        <a href="#" onclick="copyToClipboard('https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir')">کپی لینک</a>
+
+            <!-- کد جدیدی که اضافه شد -->
+            <footer>
+                <div class="text-center">
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px; direction: rtl; padding: 10px; border: 1px solid #ccc; border-radius: 10px; background: #f8f9fa;">
+                        <div style="display: flex; justify-content: space-between; width: 100%;">
+                            <span>ساب لینک پیشنهادی:</span>
+                            <a href="#" onclick="copyToClipboard('https://odd-unit-c94a.mahdi021zamani.workers.dev/#mahdizamani.conf')">کپی لینک</a>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; width: 100%;">
+                            <span>مخصوص شرایط اختصاصی برای اتصال امن‌تر:</span>
+                            <a href="#" onclick="copyToClipboard('https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir')">کپی لینک</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </footer>
+
+            <script>
+                function copyToClipboard(text) {
+                    navigator.clipboard.writeText(text).then(function () {
+                        alert('لینک در کلیپ‌برد کپی شد.');
+                    }, function () {
+                        alert('کپی لینک با مشکل مواجه شد.');
+                    });
+                }
+            </script>
+
+            <script src="./assets/js/jquery.min.js"></script>
+            <script src="./assets/js/bootstrap.min.js"></script>
+            <script src="./assets/js/slick-carousel_1.6.0.js"></script>
+            <script src="./assets/js/script.js?v1.7"></script>
         </div>
     </div>
-    
-    <!-- اسکریپت‌های مورد نیاز -->
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/slick-carousel_1.6.0.js"></script>
-    <script src="./assets/js/script.js?v1.7"></script>
-
-    <script>
-        document.getElementById('get').addEventListener('click', function () {
-            const type = document.getElementById('type').value;
-            const limit = document.getElementById('total').value;
-            const version = document.querySelector('input[name="export"]:checked').value;
-            const url = version === "1" ? '/getConfig' : '/getSubConfig';
-            
-            // ارسال درخواست به سرور
-            fetch(`${url}?type=${type}&limit=${limit}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('result').classList.remove('none');
-                    document.querySelector('#result textarea').value = data.config;
-                })
-                .catch(error => {
-                    alert('خطا در دریافت کانفیگ!');
-                });
-        });
-
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(function () {
-                alert('لینک در کلیپ‌برد کپی شد.');
-            }, function () {
-                alert('کپی لینک با مشکل مواجه شد.');
-            });
-        }
-    </script>
 </body>
 </html>
