@@ -120,18 +120,12 @@
                 </div>
                 <footer>
                     <p class="text-center">
-                        © توسط
-                        <a href="mahdi021zamani@gmail.com" target="_blank">MAHDIZAMANI</a>،
-                        به کمک
-                        <a href="mahdi021zamani@gmail.com" target="_blank">CLOUDFLARE</a>
+                        <a href="https://odd-unit-c94a.mahdi021zamani.workers.dev/#mahdizamani.conf" target="_blank">لینک ساب مخصوص</a>
                         <br />
-                        <span dir="ltr">
-                            <a class="github-button" href="https://github.com/ircfspace/tconfig" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-show-count="true" aria-label="Star ircfspace/tconfig on GitHub">Star</a>
-                        </span>
+                        <a href="https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir" target="_blank">لینک ساب شخصی برای کارهای حساس</a>
                     </p>
                     <div class="text-center">
-                        <a href="https://ircf.space/contacts#donate" class="btn btn-link btn-normal btn-lg btn-outline donateLink" target="_blank">☕</a>
-                    </div>
+                        <a                </div>
                     <script src="./assets/js/jquery.min.js"></script>
                     <script src="./assets/js/bootstrap.min.js"></script>
                     <script src="./assets/js/slick-carousel_1.6.0.js"></script>
