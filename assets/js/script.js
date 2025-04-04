@@ -1,179 +1,139 @@
-$(document).on('click', '#normal, #sub', function(e) {
-    let normal = document.getElementById('normal').checked;
-    if ( normal ) {
-        $('#total').val('25').removeClass('none');
-        $('#limit').addClass('none');
-    }
-    else {
-        $('#total').val('all').addClass('none');
-        $('#limit').removeClass('none');
-    }
-});
-
-$(document).on('click', '#copy', function(e) {
-    let text = $('#result textarea').val();
-    navigator.clipboard.writeText(text).then(() => {
-        $('#copy').text('کپی شد!');
-        setTimeout(function() {
-            $('#copy').text('کپی کانفیگ');
-        }, 2500)
-    }).catch(() => {
-        //
-    });
-});
-
-$(document).on('change', '#type, #total', function(e) {
-    e.preventDefault();
-    $('#get').trigger('click');
-});
-
-$(document).on('change', '#type, #limit', function(e) {
-    e.preventDefault();
-    $('#get').trigger('click');
-});
-
-let source = 'soroushmirzaei/telegram-configs-collector';
-$(document).on('click', '#get', function(e) {
-    e.preventDefault();
-    let type = $('#type').val();
-    let total = $('#total').val();
-    let limit = $('#limit').val();
-    let normal = document.getElementById('normal').checked;
-    document.getElementById('get').disabled = true;
-    $('#get').html('درحال دریافت ...');
-    $('#result').addClass('none');
-    $('#result textarea').html('');
-    $('#customers').addClass('none');
-    $('#result #qrCode').addClass('none');
-    $('#slider').html('');
-    let config = "";
-    let channel = {};
-    if ( normal ) {
-        if ( type === 'warp' ) {
-            config += "warp://auto/?ifp=10-20&ifps=10-20&ifpd=1-2&ifpm=m4#WarpInWarp ⭐️&&detour=warp://auto#Warp 🇮🇷";
-            $('#result').removeClass('none');
-            $('#get').html('دریافت کانفیگ');
-            document.getElementById('get').disabled = false;
-            $('#result textarea').html(config);
-            return false;
-        }
-        let i = 0;
-        jQuery.get('https://raw.githubusercontent.com/'+source+'/main/splitted/mixed?v1.'+Date.now(), function(data) {
-            data = atob(data);
-            data = JSON.parse(data);
-            console.log(data);
-            jQuery.each(data, function(index, item) {
-                channel[item.channel.username] = {
-                    title: item.channel.title,
-                    username: item.channel.username,
-                    logo: item.channel.logo,
-                };
-                if ( type !== 'mix' ) {
-                    if ( type !== item.type ) {
-                        return;
-                    }
-                }
-                if ( total !== 'all' ) {
-                    if ( total <= i ) {
-                        return false;
-                    }
-                }
-                if ( i !== 0 ) {
-                    config += "\n";
-                }
-                config += item.config;
-                i++;
-            });
-            document.getElementById('get').disabled = false;
-            $('#get').html('دریافت کانفیگ');
-            if ( config !== '' ) {
-                $('#result').removeClass('none');
-                $('#result textarea').html(config);
-                generateCarousel(channel);
-                $('#customers').removeClass('none');
-            }
-        })
-        .fail(function() {
-            document.getElementById('get').disabled = false;
-            $('#get').html('دریافت کانفیگ');
-            $('#result').addClass('none');
-            $('#result textarea').html('');
-            $('#customers').addClass('none');
-            $('#slider').html('');
-        });
-    }
-    else {
-        document.getElementById('get').disabled = false;
-        $('#get').html('دریافت کانفیگ');
-        //type = (type === 'ss' ? 'shadowsocks' : type);
-        //config = 'https://raw.githubusercontent.com/'+source+'/main/subscriptions/xray/normal/'+type;
-        if ( type === "warp" ) {
-            config = 'https://raw.githubusercontent.com/ircfspace/warpsub/main/export/warp';
-        }
-        else if ( type === "mix" ) {
-            config = 'https://raw.githubusercontent.com/'+source+'/main/splitted/mixed';
-        }
-        else if ( type === "ipv4" ) {
-            config = 'https://raw.githubusercontent.com/'+source+'/main/layers/ipv4';
-        }
-        else if ( type === "ipv6" ) {
-            config = 'https://raw.githubusercontent.com/'+source+'/main/layers/ipv6';
-        }
-        else {
-            //config = 'https://raw.githubusercontent.com/'+source+'/main/'+(limit === 'lite' ? 'lite/' : '')+'subscriptions/xray/normal/'+type;
-            config = 'https://raw.githubusercontent.com/'+source+'/main/protocols/'+type;
-        }
-        $('#qrcode img').attr('src', "https://quickchart.io/qr/?size=300x200&light=ffffff&text="+encodeURIComponent(config));
-        $('#qrModal h4').html('QRCode ('+type+')');
-        $('#qrcode input').val(config);
-        $("#qrModal").modal('show');
-    }
-});
-
-$(document).on('click', '#copyFromQR, #copyUrl', function (e) {
-    e.preventDefault();
-    const input = document.getElementById('subUrl');
-    input.select();
-    input.setSelectionRange(0, 99999);
-    document.execCommand('copy');
-    $("#qrModal").modal('hide');
-    alert('آدرس در کلیپ‌بورد کپی شد.');
-});
-
-function generateCarousel(channel) {
-    let carousel = "";
-    jQuery.each(channel, function(index, item) {
-        if (typeof item !== "undefined" && (item.title !== null || item.logo !== null)) {
-            carousel += '<a href="https://t.me/'+item.username+'" title="'+item.title+'" target="_blank">';
-            carousel += '<div class="slide">';
-            carousel += '<img src="'+item.logo+'">';
-            carousel += '<p dir="auto">'+item.title+'</p>';
-            carousel += '</div>';
-            carousel += '</a>';
-        }
-    });
-    $('#slider').html(carousel).slick('refresh');
-}
-
-window.addEventListener('load', function() {
-    $('#slider').slick({
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        arrows: false,
-        dots: false,
-        pauseOnHover: true,
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 5
-            }
-        }, {
-            breakpoint: 520,
-            settings: {
-                slidesToShow: 3
-            }
-        }]
-    });
-});
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="./assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
+        <link href="./assets/css/vazir.css" rel="stylesheet" />
+        <link href="./assets/css/style.css?v1.5" rel="stylesheet" />
+        <title>IRCF | کانفیگ رایگان</title>
+        <meta name="description" content="آی پی سالم و تمیز برای کلودفلر (کلادفلر) جهت دسترسی به اینترنت آزاد" />
+        <meta name="keywords" content="کلودفلر, کلادفلر, cloudflare, cf, آی پی تمیز, آی پی سالم, اسکن آی پی" />
+        <meta name="robots" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
+        <meta name="theme-color" content="#ff7900" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico?v1.1" />
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
+                    <a href=".">
+                        <img src="./assets/img/cflogo.png?v1.1" alt="logo" />
+                        <h1>مهدی♡زمانی</h1>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="clearfix"></div>
+        <div class="container">
+            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
+                <ul class="nav nav-tabs">
+                    <li>
+                        <a href="mahdi021zamani@gmail.com">معرفی</a>
+                    </li>
+                    <li class="active"><a href="./index.html">کانفیگ رایگان</a></li>
+                    <li class="pull-left">
+                        <a href="mahdi021zamani@gmail.com">تماس‌باما</a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="alert alert-info" id="defAlert">
+                    <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده  دسترسی داشته باشین. این‌کانفیگ‌ها به‌صورت خودکار و منظم، بدون دخل‌وتصرف از یه‌سری <a href="https://github.com/soroushmirzaei/telegram-configs-collector/blob/main/telegram%20channels.json" target="_blank">کانال تلگرامی</a> جمع‌آوری میشن و برای رعایت مسائل امنیتی توصیه میشه تنها برای مصارف عادی ازشون استفاده کنین.</p>
+                </div>
+                <ul class="nav nav-pills">
+                    <li class="active"><a href=https://location-58t.pages.dev/">پروتکل‌ها</a></li>
+                    <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
+                </ul>
+                <div class="form-group">
+                    <select class="form-control" id="type">
+                        <option value="mix">همه‌نوع کانفیگ</option>
+                        <option value="reality">کانفیگ REALITY</option>
+                        <option value="vless">کانفیگ VLESS</option>
+                        <option value="vmess">کانفیگ VMESS</option>
+                        <option value="shadowsocks">کانفیگ SHADOWSOCKS</option>
+                        <option value="hysteria">کانفیگ HYSTERIA2</option>
+                        <option value="trojan">کانفیگ TROJAN</option>
+                        <option value="juicity">کانفیگ JUICITY</option>
+                        <option value="tuic">کانفیگ TUIC</option>
+                        <option value="warp">کانفیگ WARP</option>
+                        <option value="ipv4">کانفیگ IPv4</option>
+                        <option value="ipv6">کانفیگ IPv6</option>
+                    </select>
+                    <select class="form-control none" id="total">
+                        <option value="10">حداکثر ۱۰ مورد</option>
+                        <option value="25" selected>حداکثر ۲۵ مورد</option>
+                        <option value="50">حداکثر ۵۰ مورد</option>
+                        <option value="all">همه موارد</option>
+                    </select>
+                    <select class="form-control" id="limit" disabled>
+                        <option value="lite" disabled>نسخه سبک</option>
+                        <option value="full" selected>نسخه کامل</option>
+                    </select>
+                </div>
+                <div class="betaVersion rangeSelector">
+                    <input type="radio" name="export" id="normal" value="1" disabled />
+                    <label for="normal">به‌صورت عادی</label>
+                    <div class="clearfix"></div>
+                    <input type="radio" name="export" id="sub" value="1" checked />
+                    <label for="sub">لینک ساب</label>
+                </div>
+                <div class="clearfix"></div>
+                <div class="btn btn-block btn-default" id="get">دریافت کانفیگ</div>
+                <div class="clearfix"></div>
+                <div class="fullBox none" id="result">
+                    <textarea class="form-control dirLeft"></textarea>
+                    <div class="clearfix"></div>
+                    <div class="btn btn-link btn-xs" id="copy">کپی کانفیگ</div>
+                    <div class="clearfix"></div>
+                    <div class="alert alert-warning customers" id="customers">
+                        <small class="label label-warning">تامین‌کنندگان</small>
+                        <div class="clearfix"></div>
+                        <div class="customer-logos slider" id="slider"></div>
+                    </div>
+                </div>
+                <br>
+                <div id="qrModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title dirLeft">QRCode</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="qrcode" id="qrcode">
+                                    <a href="javascript:;" id="copyFromQR">
+                                        <img src="" alt="qrcode" />
+                                    </a>
+                                    <input id="subUrl" class="form-control dirLeft" value="" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" id="copyUrl">کپی آدرس</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <p class="text-center">
+                        <a href="https://odd-unit-c94a.mahdi021zamani.workers.dev/#mahdizamani.conf" target="_blank">لینک ساب مخصوص</a>
+                        <br />
+                        <a href="https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir" target="_blank">لینک ساب شخصی برای کارهای حساس</a>
+                    </p>
+                    <div class="text-center">
+                        <a href="https://ircf.space/contacts#donate" class="btn btn-link btn-normal btn-lg btn-outline donateLink" target="_blank">☕</a>
+                    </div>
+                    <script src="./assets/js/jquery.min.js"></script>
+                    <script src="./assets/js/bootstrap.min.js"></script>
+                    <script src="./assets/js/slick-carousel_1.6.0.js"></script>
+                    <script src="./assets/js/script.js?v1.7"></script>
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
