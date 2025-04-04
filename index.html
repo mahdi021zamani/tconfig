@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="fa">
+<!DOCTYPE html>
+<html lang="fa">
     <head>
         <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
         <link href="./assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
@@ -32,14 +33,22 @@
         <div class="container">
             <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
                 <ul class="nav nav-tabs">
-                    <li><a href="mahdi021zamani@gmail.com">معرفی</a></li>
+                    <li>
+                        <a href="mahdi021zamani@gmail.com">معرفی</a>
+                    </li>
                     <li class="active"><a href="./index.html">کانفیگ رایگان</a></li>
-                    <li class="pull-left"><a href="mahdi021zamani@gmail.com">تماس‌باما</a></li>
+                    <li class="pull-left">
+                        <a href="mahdi021zamani@gmail.com">تماس‌باما</a>
+                    </li>
                 </ul>
                 <div class="clearfix"></div>
                 <div class="alert alert-info" id="defAlert">
-                    <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده دسترسی داشته باشین...</p>
+                    <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده  دسترسی داشته باشین. این‌کانفیگ‌ها به‌صورت خودکار و منظم، بدون دخل‌وتصرف از یه‌سری <a href="https://github.com/soroushmirzaei/telegram-configs-collector/blob/main/telegram%20channels.json" target="_blank">کانال تلگرامی</a> جمع‌آوری میشن و برای رعایت مسائل امنیتی توصیه میشه تنها برای مصارف عادی ازشون استفاده کنین.</p>
                 </div>
+                <ul class="nav nav-pills">
+                    <li class="active"><a href=https://location-58t.pages.dev/">پروتکل‌ها</a></li>
+                    <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
+                </ul>
                 <div class="form-group">
                     <select class="form-control" id="type">
                         <option value="mix">همه‌نوع کانفیگ</option>
@@ -55,19 +64,68 @@
                         <option value="ipv4">کانفیگ IPv4</option>
                         <option value="ipv6">کانفیگ IPv6</option>
                     </select>
+                    <select class="form-control none" id="total">
+                        <option value="10">حداکثر ۱۰ مورد</option>
+                        <option value="25" selected>حداکثر ۲۵ مورد</option>
+                        <option value="50">حداکثر ۵۰ مورد</option>
+                        <option value="all">همه موارد</option>
+                    </select>
+                    <select class="form-control" id="limit" disabled>
+                        <option value="lite" disabled>نسخه سبک</option>
+                        <option value="full" selected>نسخه کامل</option>
+                    </select>
                 </div>
+                <div class="betaVersion rangeSelector">
+                    <input type="radio" name="export" id="normal" value="1" disabled />
+                    <label for="normal">به‌صورت عادی</label>
+                    <div class="clearfix"></div>
+                    <input type="radio" name="export" id="sub" value="1" checked />
+                    <label for="sub">لینک ساب</label>
+                </div>
+                <div class="clearfix"></div>
                 <div class="btn btn-block btn-default" id="get">دریافت کانفیگ</div>
                 <div class="clearfix"></div>
+                <div class="fullBox none" id="result">
+                    <textarea class="form-control dirLeft"></textarea>
+                    <div class="clearfix"></div>
+                    <div class="btn btn-link btn-xs" id="copy">کپی کانفیگ</div>
+                    <div class="clearfix"></div>
+                    <div class="alert alert-warning customers" id="customers">
+                        <small class="label label-warning">تامین‌کنندگان</small>
+                        <div class="clearfix"></div>
+                        <div class="customer-logos slider" id="slider"></div>
+                    </div>
+                </div>
+                <br>
+                <div id="qrModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title dirLeft">QRCode</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="qrcode" id="qrcode">
+                                    <a href="javascript:;" id="copyFromQR">
+                                        <img src="" alt="qrcode" />
+                                    </a>
+                                    <input id="subUrl" class="form-control dirLeft" value="" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" id="copyUrl">کپی آدرس</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <footer>
                     <p class="text-center">
-                        © توسط
-                        <a href="mahdi021zamani@gmail.com" target="_blank">MAHDIZAMANI</a>،
-                        به کمک
-                        <a href="mahdi021zamani@gmail.com" target="_blank">CLOUDFLARE</a>
+                        <a href="https://odd-unit-c94a.mahdi021zamani.workers.dev/#mahdizamani.conf" target="_blank">لینک ساب مخصوص</a>
+                        <br />
+                        <a href="https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir" target="_blank">لینک ساب شخصی برای کارهای حساس</a>
                     </p>
                     <div class="text-center">
-                        <p><a href="https://odd-unit-c94a.mahdi021zamani.workers.dev/#mahdizamani.conf" class="btn btn-link">لینک ساب مخصوص</a></p>
-                        <p><a href="https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir" class="btn btn-link">لینک ساب شخصی برای کارهای حساس</a></p>
+                        <a href="https://ircf.space/contacts#donate" class="btn btn-link btn-normal btn-lg btn-outline donateLink" target="_blank">☕</a>
                     </div>
                     <script src="./assets/js/jquery.min.js"></script>
                     <script src="./assets/js/bootstrap.min.js"></script>
