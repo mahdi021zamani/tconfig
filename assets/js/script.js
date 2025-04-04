@@ -120,9 +120,14 @@
                 </div>
                 <footer>
                     <p class="text-center">
-                        <a href="https://odd-unit-c94a.mahdi021zamani.workers.dev/#mahdizamani.conf" target="_blank">لینک ساب مخصوص</a>
+                        © توسط
+                        <a href="mahdi021zamani@gmail.com" target="_blank">MAHDIZAMANI</a>،
+                        به کمک
+                        <a href="mahdi021zamani@gmail.com" target="_blank">CLOUDFLARE</a>
                         <br />
-                        <a href="https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir" target="_blank">لینک ساب شخصی برای کارهای حساس</a>
+                        <span dir="ltr">
+                            <a class="github-button" href="https://github.com/ircfspace/tconfig" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-show-count="true" aria-label="Star ircfspace/tconfig on GitHub">Star</a>
+                        </span>
                     </p>
                     <div class="text-center">
                         <a href="https://ircf.space/contacts#donate" class="btn btn-link btn-normal btn-lg btn-outline donateLink" target="_blank">☕</a>
