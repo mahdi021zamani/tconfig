@@ -46,7 +46,7 @@
                     <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده  دسترسی داشته باشین. این‌کانفیگ‌ها به‌صورت خودکار و منظم، بدون دخل‌وتصرف از یه‌سری <a href="mahdi021zamani@gmail.com" target="_blank">کانال تلگرامی</a> جمع‌آوری میشن و برای رعایت مسائل امنیتی توصیه میشه تنها برای مصارف عادی ازشون استفاده کنین.</p>
                 </div>
                 <ul class="nav nav-pills">
-                    <li class="active"><a href=https://location-58t.pages.dev/">پروتکل‌ها</a></li>
+                    <li class="active"><a href="https://location-58t.pages.dev/">پروتکل‌ها</a></li>
                     <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
                 </ul>
                 <div class="form-group">
@@ -120,14 +120,24 @@
                 </div>
                 <footer>
                     <p class="text-center">
-
                         <a href="https://odd-unit-c94a.mahdi021zamani.workers.dev/#mahdizamani.conf" target="_blank">لینک ساب مخصوص</a>
                         <br />
-                        <a href="https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir" target="_blank">لینک ساب شخصی برای کارهای حساس</a>
+                        <a href="javascript:void(0);" onclick="copySubLink()">لینک ساب شخصی برای کارهای حساس (کلیک برای کپی)</a>
                     </p>
                     <div class="text-center">
-                        <a href="mahdi021zamani@gmail.com" class="btn btn-link btn-normal btn-lg btn-outline donateLink"
+                        <a href="mahdi021zamani@gmail.com" class="btn btn-link btn-normal btn-lg btn-outline donateLink"></a>
                     </div>
+                    <script>
+                        function copySubLink() {
+                            const subLink = "https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir";
+                            navigator.clipboard.writeText(subLink).then(function() {
+                                alert("لینک ساب در کلیپ‌بورد ذخیره شد!");
+                            }, function(err) {
+                                alert("خطا در کپی کردن لینک!");
+                                console.error(err);
+                            });
+                        }
+                    </script>
                     <script src="./assets/js/jquery.min.js"></script>
                     <script src="./assets/js/bootstrap.min.js"></script>
                     <script src="./assets/js/slick-carousel_1.6.0.js"></script>
