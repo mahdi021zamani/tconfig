@@ -2,8 +2,8 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>MAHDI | کانفیگ رایگان</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MAHDI | کانفیگ رایگان</title>
     <meta name="description" content="آی پی سالم و تمیز برای کلودفلر جهت دسترسی به اینترنت آزاد">
     <meta name="theme-color" content="#ff7900">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
@@ -96,7 +96,7 @@
 
             <!-- لینک ساب برای کپی -->
             <div class="alert alert-success text-center">
-                <a href="#" onclick="copySubLink(event)" class="btn btn-primary">
+                <a href="#" onclick="copySubLink()" class="btn btn-primary">
                     لینک ساب شخصی برای کارهای حساس (کلیک برای کپی)
                 </a>
             </div>
@@ -110,17 +110,15 @@
 
     <!-- اسکریپت‌ها -->
     <script>
-        function copySubLink(event) {
-            event.preventDefault();
+        function copySubLink() {
             const link = "https://vfarid2-3.mahdi021zamani.workers.dev/sub#sub";
-            navigator.clipboard.writeText(link)
-                .then(() => {
-                    alert("لینک با موفقیت کپی شد!");
-                })
-                .catch(err => {
-                    console.error("خطا در کپی:", err);
-                    alert("کپی انجام نشد. لطفاً دستی کپی کنید.");
-                });
+            const tempInput = document.createElement("input");
+            tempInput.value = link;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert("لینک با موفقیت کپی شد!");
         }
     </script>
 
