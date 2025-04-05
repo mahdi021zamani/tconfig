@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="آی پی سالم و تمیز برای کلودفلر (کلادفلر) جهت دسترسی به اینترنت آزاد" />
-    <meta name="keywords" content="کلودفلر, کلادفلر, cloudflare, cf, آی پی تمیز, آی پی سالم, اسکن آی پی" />
-    <meta name="robots" content="index,follow,noodp" />
-    <meta name="googlebot" content="index,follow" />
-    <meta name="theme-color" content="#ff7900" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta charset="UTF-8">
     <title>MAHDI | کانفیگ رایگان</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="آی پی سالم و تمیز برای کلودفلر جهت دسترسی به اینترنت آزاد">
+    <meta name="theme-color" content="#ff7900">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
     <link href="./assets/css/vazir.css" rel="stylesheet" />
@@ -31,41 +26,37 @@
         </div>
     </nav>
 
-    <div class="clearfix"></div>
-
     <div class="container">
         <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
             <ul class="nav nav-tabs">
                 <li><a href="mailto:mahdi021zamani@gmail.com">معرفی</a></li>
                 <li class="active"><a href="./index.html">کانفیگ رایگان</a></li>
-                <li class="pull-left"><a href="mailto:mahdi021zamani@gmail.com">تماس‌باما</a></li>
+                <li class="pull-left"><a href="mailto:mahdi021zamani@gmail.com">تماس‌ باما</a></li>
             </ul>
 
-            <div class="clearfix"></div>
-
             <div class="alert alert-info" id="defAlert">
-                <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده دسترسی داشته باشین. این‌کانفیگ‌ها به‌صورت خودکار و منظم، بدون دخل‌وتصرف از یه‌سری <a href="mailto:mahdi021zamani@gmail.com" target="_blank">کانال تلگرامی</a> جمع‌آوری میشن و برای رعایت مسائل امنیتی توصیه میشه تنها برای مصارف عادی ازشون استفاده کنین.</p>
+                <p>توسط این‌ ابزار می‌تونین به کانفیگ‌های رایگان دسترسی داشته باشین. این کانفیگ‌ها به‌صورت خودکار از کانال‌های تلگرامی جمع‌آوری میشن. لطفاً برای مصرف عادی استفاده بشه.</p>
             </div>
 
             <ul class="nav nav-pills">
-                <li class="active"><a href="https://location-58t.pages.dev/">پروتکل‌ها</a></li>
-                <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
+                <li class="active"><a href="#">پروتکل‌ها</a></li>
+                <li><a href="#">لوکیشن‌ها</a></li>
             </ul>
 
             <div class="form-group">
                 <select class="form-control" id="type">
-                    <option value="mix">همه‌نوع کانفیگ</option>
-                    <option value="reality">کانفیگ REALITY</option>
-                    <option value="vless">کانفیگ VLESS</option>
-                    <option value="vmess">کانفیگ VMESS</option>
-                    <option value="shadowsocks">کانفیگ SHADOWSOCKS</option>
-                    <option value="hysteria">کانفیگ HYSTERIA2</option>
-                    <option value="trojan">کانفیگ TROJAN</option>
-                    <option value="juicity">کانفیگ JUICITY</option>
-                    <option value="tuic">کانفیگ TUIC</option>
-                    <option value="warp">کانفیگ WARP</option>
-                    <option value="ipv4">کانفیگ IPv4</option>
-                    <option value="ipv6">کانفیگ IPv6</option>
+                    <option value="mix">همه‌ نوع کانفیگ</option>
+                    <option value="reality">REALITY</option>
+                    <option value="vless">VLESS</option>
+                    <option value="vmess">VMESS</option>
+                    <option value="shadowsocks">SHADOWSOCKS</option>
+                    <option value="hysteria">HYSTERIA2</option>
+                    <option value="trojan">TROJAN</option>
+                    <option value="juicity">JUICITY</option>
+                    <option value="tuic">TUIC</option>
+                    <option value="warp">WARP</option>
+                    <option value="ipv4">IPv4</option>
+                    <option value="ipv6">IPv6</option>
                 </select>
                 <select class="form-control none" id="total">
                     <option value="10">حداکثر ۱۰ مورد</option>
@@ -81,7 +72,7 @@
 
             <div class="betaVersion rangeSelector">
                 <input type="radio" name="export" id="normal" value="1" disabled />
-                <label for="normal">به‌صورت عادی</label>
+                <label for="normal">عادی</label>
                 <div class="clearfix"></div>
                 <input type="radio" name="export" id="sub" value="1" checked />
                 <label for="sub">لینک ساب</label>
@@ -91,75 +82,51 @@
             <div class="btn btn-block btn-default" id="get">دریافت کانفیگ</div>
 
             <div class="clearfix"></div>
-
             <div class="fullBox none" id="result">
                 <textarea class="form-control dirLeft"></textarea>
                 <div class="clearfix"></div>
                 <div class="btn btn-link btn-xs" id="copy">کپی کانفیگ</div>
-                <div class="clearfix"></div>
                 <div class="alert alert-warning customers" id="customers">
-                    <small class="label label-warning">تامین‌کنندگان</small>
-                    <div class="clearfix"></div>
+                    <small class="label label-warning">تأمین‌کنندگان</small>
                     <div class="customer-logos slider" id="slider"></div>
                 </div>
             </div>
 
-            <br>
+            <br />
 
-            <!-- QR Modal -->
-            <div id="qrModal" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title dirLeft">QRCode</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="qrcode" id="qrcode">
-                                <a href="javascript:;" id="copyFromQR">
-                                    <img src="" alt="qrcode" />
-                                </a>
-                                <input id="subUrl" class="form-control dirLeft" value="" />
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" id="copyUrl">کپی آدرس</button>
-                        </div>
-                    </div>
-                </div>
+            <!-- لینک ساب برای کپی -->
+            <div class="alert alert-success text-center">
+                <a href="#" onclick="copySubLink(event)" class="btn btn-primary">
+                    لینک ساب شخصی برای کارهای حساس (کلیک برای کپی)
+                </a>
             </div>
 
-            <footer>
-                <p class="text-center">
-                    <a href="https://odd-unit-c94a.mahdi021zamani.workers.dev/#mahdizamani.conf" target="_blank">لینک ساب مخصوص</a><br />
-                    <a href="#" onclick="copySubLink(event)">لینک ساب شخصی برای کارهای حساس (کلیک برای کپی)</a>
-                </p>
-                <div class="text-center">
-                    <a href="mailto:mahdi021zamani@gmail.com" class="btn btn-link btn-normal btn-lg btn-outline donateLink">تماس با ما</a>
-                </div>
-
-                <script src="./assets/js/jquery.min.js"></script>
-                <script src="./assets/js/bootstrap.min.js"></script>
-                <script src="./assets/js/slick-carousel_1.6.0.js"></script>
-                <script src="./assets/js/script.js?v1.7"></script>
-                <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-                <script>
-                    function copySubLink(event) {
-                        event.preventDefault();
-                        const link = "https://mahdi-nude.mahdi021zamani.workers.dev/sub/spotifys.ir#spotifys.ir";
-                        navigator.clipboard.writeText(link)
-                            .then(() => {
-                                alert("لینک با موفقیت کپی شد!");
-                            })
-                            .catch(err => {
-                                console.error("خطا در کپی:", err);
-                                alert("کپی انجام نشد. لطفاً دستی کپی کنید.");
-                            });
-                    }
-                </script>
-            </footer>
         </div>
     </div>
+
+    <footer class="text-center">
+        <p>تمامی حقوق محفوظ است | مهدی زمانی</p>
+    </footer>
+
+    <!-- اسکریپت‌ها -->
+    <script>
+        function copySubLink(event) {
+            event.preventDefault();
+            const link = "https://vfarid2-3.mahdi021zamani.workers.dev/sub#sub";
+            navigator.clipboard.writeText(link)
+                .then(() => {
+                    alert("لینک با موفقیت کپی شد!");
+                })
+                .catch(err => {
+                    console.error("خطا در کپی:", err);
+                    alert("کپی انجام نشد. لطفاً دستی کپی کنید.");
+                });
+        }
+    </script>
+
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/slick-carousel_1.6.0.js"></script>
+    <script src="./assets/js/script.js?v1.7"></script>
 </body>
 </html>
