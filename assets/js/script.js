@@ -108,7 +108,7 @@ $(document).on('click', '#get', function(e) {
         //type = (type === 'ss' ? 'shadowsocks' : type);
         //config = 'https://raw.githubusercontent.com/'+source+'/main/subscriptions/xray/normal/'+type;
         if ( type === "warp" ) {
-            config = 'https://raw.githubusercontent.com/ircfspace/warpsub/main/export/warp';
+            config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
         }
         else if ( type === "mix" ) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/splitted/mixed';
