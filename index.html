@@ -27,6 +27,11 @@
                     <li><a class="dropdown-item" href="#" data-type="mix">Mix</a></li>
                     <li><a class="dropdown-item" href="#" data-type="ipv4">IPv4</a></li>
                     <li><a class="dropdown-item" href="#" data-type="ipv6">IPv6</a></li>
+                    <li><a class="dropdown-item" href="#" data-type="shadowsocks">Shadowsocks</a></li>
+                    <li><a class="dropdown-item" href="#" data-type="v2ray">V2Ray</a></li>
+                    <li><a class="dropdown-item" href="#" data-type="trojan">Trojan</a></li>
+                    <li><a class="dropdown-item" href="#" data-type="vmess">Vmess</a></li>
+                    <li><a class="dropdown-item" href="#" data-type="socks5">SOCKS5</a></li>
                 </ul>
             </div>
 
@@ -69,6 +74,16 @@
                         config = "https://example.com/ipv4-config-url";
                     } else if (selectedType === 'ipv6') {
                         config = "https://example.com/ipv6-config-url";
+                    } else if (selectedType === 'shadowsocks') {
+                        config = "ss://YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXo6cGFzc3dvcmQ@server.com:12345#ShadowsocksConfig";
+                    } else if (selectedType === 'v2ray') {
+                        config = "v2ray://eyJ2IjoiMS4wIiwidiI6IjIiLCJwIjoiY2hhY2hhY2hhY2NoYWNodGFvdiJ9";
+                    } else if (selectedType === 'trojan') {
+                        config = "trojan://password@server.com:443#TrojanConfig";
+                    } else if (selectedType === 'vmess') {
+                        config = "vmess://eyJ2IjoiMSIsImFkZCI6InNlcnZlci5jb20iLCJwb3J0IjoiMjAwMCIsInR5cGUiOiJub3RlIiwiaWQiOiIxMjM0NTY3ODkwIiwibm9kZSI6IjAiLCJzY2hldWxlIjoiY2xvdWQiLCJhbGciOiJhdXRoMiJ9";
+                    } else if (selectedType === 'socks5') {
+                        config = "socks5://user:password@server.com:1080#SOCKS5Proxy";
                     } else {
                         alert('لطفاً نوع کانفیگ را انتخاب کنید.');
                         return;
