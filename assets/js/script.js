@@ -105,8 +105,6 @@ $(document).on('click', '#get', function(e) {
     else {
         document.getElementById('get').disabled = false;
         $('#get').html('دریافت کانفیگ');
-        //type = (type === 'ss' ? 'shadowsocks' : type);
-        //config = 'https://raw.githubusercontent.com/'+source+'/main/subscriptions/xray/normal/'+type;
         if ( type === "warp" ) {
             config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
         }
@@ -120,7 +118,6 @@ $(document).on('click', '#get', function(e) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/layers/ipv6';
         }
         else {
-            //config = 'https://raw.githubusercontent.com/'+source+'/main/'+(limit === 'lite' ? 'lite/' : '')+'subscriptions/xray/normal/'+type;
             config = 'https://raw.githubusercontent.com/'+source+'/main/protocols/'+type;
         }
         $('#qrcode img').attr('src', "https://quickchart.io/qr/?size=300x200&light=ffffff&text="+encodeURIComponent(config));
