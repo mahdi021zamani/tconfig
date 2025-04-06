@@ -1,109 +1,135 @@
 <!DOCTYPE html>
 <html lang="fa">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>دریافت کانفیگ</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            .container {
-                margin-top: 50px;
-            }
-        </style>
+        <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="./assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
+        <link href="./assets/css/vazir.css" rel="stylesheet" />
+        <link href="./assets/css/style.css?v1.5" rel="stylesheet" />
+        <title>MAHDI | کانفیگ رایگان</title>
+        <meta name="description" content="آی پی سالم و تمیز برای کلودفلر (کلادفلر) جهت دسترسی به اینترنت آزاد" />
+        <meta name="keywords" content="کلودفلر, کلادفلر, cloudflare, cf, آی پی تمیز, آی پی سالم, اسکن آی پی" />
+        <meta name="robots" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
+        <meta name="theme-color" content="#ff7900" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico?v1.1" />
     </head>
     <body>
-
-        <div class="container">
-            <h2>انتخاب نوع کانفیگ</h2>
-            <!-- Dropdown menu for config types -->
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    انتخاب نوع کانفیگ
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#" data-type="warp">Warp</a></li>
-                    <li><a class="dropdown-item" href="#" data-type="mix">Mix</a></li>
-                    <li><a class="dropdown-item" href="#" data-type="ipv4">IPv4</a></li>
-                    <li><a class="dropdown-item" href="#" data-type="ipv6">IPv6</a></li>
-                    <li><a class="dropdown-item" href="#" data-type="shadowsocks">Shadowsocks</a></li>
-                    <li><a class="dropdown-item" href="#" data-type="v2ray">V2Ray</a></li>
-                    <li><a class="dropdown-item" href="#" data-type="trojan">Trojan</a></li>
-                    <li><a class="dropdown-item" href="#" data-type="vmess">Vmess</a></li>
-                    <li><a class="dropdown-item" href="#" data-type="socks5">SOCKS5</a></li>
-                </ul>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
+                    <a href=".">
+                        <img src="./assets/img/cflogo.png?v1.1" alt="logo" />
+                        <h1>مهدی♡زمانی</h1>
+                    </a>
+                </div>
             </div>
+        </nav>
+        <div class="clearfix"></div>
+        <div class="container">
+            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
+                <ul class="nav nav-tabs">
+                    <li>
+                        <a href="mahdi021zamani@gmail.com">معرفی</a>
+                    </li>
+                    <li class="active"><a href="./index.html">کانفیگ رایگان</a></li>
+                    <li class="pull-left">
+                        <a href="mahdi021zamani@gmail.com">تماس‌باما</a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="alert alert-info" id="defAlert">
+                    <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده  دسترسی داشته باشین. این‌کانفیگ‌ها به‌صورت خودکار و منظم، بدون دخل‌وتصرف از یه‌سری <a href="mahdi021zamani@gmail.com" target="_blank">کانال تلگرامی</a> جمع‌آوری میشن و برای رعایت مسائل امنیتی توصیه میشه تنها برای مصارف عادی ازشون استفاده کنین.</p>
+                </div>
+                <ul class="nav nav-pills">
+                    <li class="active"><a href=https://location-58t.pages.dev/">پروتکل‌ها</a></li>
+                    <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
+                </ul>
+                <div class="form-group">
+                    <select class="form-control" id="type">
+                        <option value="mix">همه‌نوع کانفیگ</option>
+                        <option value="reality">کانفیگ REALITY</option>
+                        <option value="vless">کانفیگ VLESS</option>
+                        <option value="vmess">کانفیگ VMESS</option>
+                        <option value="shadowsocks">کانفیگ SHADOWSOCKS</option>
+                        <option value="hysteria">کانفیگ HYSTERIA2</option>
+                        <option value="trojan">کانفیگ TROJAN</option>
+                        <option value="juicity">کانفیگ JUICITY</option>
+                        <option value="tuic">کانفیگ TUIC</option>
+                        <option value="warp">کانفیگ WARP</option>
+                        <option value="ipv4">کانفیگ IPv4</option>
+                        <option value="ipv6">کانفیگ IPv6</option>
+                    </select>
+                    <select class="form-control none" id="total">
+                        <option value="10">حداکثر ۱۰ مورد</option>
+                        <option value="25" selected>حداکثر ۲۵ مورد</option>
+                        <option value="50">حداکثر ۵۰ مورد</option>
+                        <option value="all">همه موارد</option>
+                    </select>
+                    <select class="form-control" id="limit" disabled>
+                        <option value="lite" disabled>نسخه سبک</option>
+                        <option value="full" selected>نسخه کامل</option>
+                    </select>
+                </div>
+                <div class="betaVersion rangeSelector">
+                    <input type="radio" name="export" id="normal" value="1" disabled />
+                    <label for="normal">به‌صورت عادی</label>
+                    <div class="clearfix"></div>
+                    <input type="radio" name="export" id="sub" value="1" checked />
+                    <label for="sub">لینک ساب</label>
+                </div>
+                <div class="clearfix"></div>
+                <div class="btn btn-block btn-default" id="get">دریافت کانفیگ</div>
+                <div class="clearfix"></div>
+                <div class="fullBox none" id="result">
+                    <textarea class="form-control dirLeft"></textarea>
+                    <div class="clearfix"></div>
+                    <div class="btn btn-link btn-xs" id="copy">کپی کانفیگ</div>
+                    <div class="clearfix"></div>
+                    <div class="alert alert-warning customers" id="customers">
+                        <small class="label label-warning">تامین‌کنندگان</small>
+                        <div class="clearfix"></div>
+                        <div class="customer-logos slider" id="slider"></div>
+                    </div>
+                </div>
+                <br>
+                <div id="qrModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title dirLeft">QRCode</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="qrcode" id="qrcode">
+                                    <a href="javascript:;" id="copyFromQR">
+                                        <img src="" alt="qrcode" />
+                                    </a>
+                                    <input id="subUrl" class="form-control dirLeft" value="" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" id="copyUrl">کپی آدرس</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Button to get config -->
-            <button id="get" class="btn btn-success mt-3" disabled>دریافت کانفیگ</button>
-
-            <div class="mt-4" id="resultContainer" style="display:none;">
-                <textarea class="form-control" id="result" rows="5" readonly></textarea>
-                <button class="btn btn-info mt-3" id="copyConfig">کپی کانفیگ</button>
+                    </p>
+                    <div class="text-center">
+                        <a href="mahdi021zamani@gmail.com" class="btn btn-link btn-normal btn-lg btn-outline donateLink"
+                    </div>
+                    <script src="./assets/js/jquery.min.js"></script>
+                    <script src="./assets/js/bootstrap.min.js"></script>
+                    <script src="./assets/js/slick-carousel_1.6.0.js"></script>
+                    <script src="./assets/js/script.js?v1.7"></script>
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
+                </footer>
             </div>
         </div>
-
-        <!-- Bootstrap JS, Popper, and jQuery -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-        <script>
-            $(document).ready(function() {
-                // Event listener for selecting config type from the dropdown
-                $(document).on('click', '.dropdown-item', function(e) {
-                    e.preventDefault(); // Prevent default action
-                    const selectedType = $(this).data('type'); // Get selected config type
-                    $('#dropdownMenuButton').text($(this).text()); // Change dropdown button text
-                    $('#get').prop('disabled', false); // Enable the "Get Config" button
-                    $('#get').data('type', selectedType); // Store the selected type in the button
-                });
-
-                // Event listener for clicking the "Get Config" button
-                $(document).on('click', '#get', function(e) {
-                    e.preventDefault();
-                    const selectedType = $(this).data('type'); // Get selected config type
-                    let config = "";
-
-                    // Fetch config based on selected type
-                    if (selectedType === 'warp') {
-                        config = "warp://auto/?ifp=10-20&ifps=10-20&ifpd=1-2&ifpm=m4#WarpInWarp ⭐️&&detour=warp://auto#Warp 🇮🇷";
-                    } else if (selectedType === 'mix') {
-                        config = "https://example.com/mix-config-url";
-                    } else if (selectedType === 'ipv4') {
-                        config = "https://example.com/ipv4-config-url";
-                    } else if (selectedType === 'ipv6') {
-                        config = "https://example.com/ipv6-config-url";
-                    } else if (selectedType === 'shadowsocks') {
-                        config = "ss://YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXo6cGFzc3dvcmQ@server.com:12345#ShadowsocksConfig";
-                    } else if (selectedType === 'v2ray') {
-                        config = "v2ray://eyJ2IjoiMS4wIiwidiI6IjIiLCJwIjoiY2hhY2hhY2hhY2NoYWNodGFvdiJ9";
-                    } else if (selectedType === 'trojan') {
-                        config = "trojan://password@server.com:443#TrojanConfig";
-                    } else if (selectedType === 'vmess') {
-                        config = "vmess://eyJ2IjoiMSIsImFkZCI6InNlcnZlci5jb20iLCJwb3J0IjoiMjAwMCIsInR5cGUiOiJub3RlIiwiaWQiOiIxMjM0NTY3ODkwIiwibm9kZSI6IjAiLCJzY2hldWxlIjoiY2xvdWQiLCJhbGciOiJhdXRoMiJ9";
-                    } else if (selectedType === 'socks5') {
-                        config = "socks5://user:password@server.com:1080#SOCKS5Proxy";
-                    } else {
-                        alert('لطفاً نوع کانفیگ را انتخاب کنید.');
-                        return;
-                    }
-
-                    // Display the config in the textarea
-                    $('#result').val(config);
-                    $('#resultContainer').show(); // Show result container
-                });
-
-                // Event listener for copying the config to clipboard
-                $(document).on('click', '#copyConfig', function() {
-                    const configText = $('#result').val();
-                    navigator.clipboard.writeText(configText).then(() => {
-                        alert('کانفیگ در کلیپ‌بورد کپی شد!');
-                    }).catch((err) => {
-                        alert('خطا در کپی کانفیگ: ' + err);
-                    });
-                });
-            });
-        </script>
     </body>
 </html>
