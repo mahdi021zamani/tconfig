@@ -110,6 +110,9 @@ $(document).on('click', '#get', function(e) {
         if ( type === "warp" ) {
             config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
         }
+        if ( type === "shakhsi" ) {
+            config = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#sub';
+        }
         else if ( type === "mix" ) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/splitted/mixed';
         }
