@@ -2,11 +2,11 @@ export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
 
-  // بررسی اینکه آیا کاربر قبلاً وارد شده است یا خیر
+  // بررسی کوکی‌ها برای اینکه ببینیم کاربر وارد شده است یا نه
   const cookies = request.headers.get("Cookie") || "";
   const isAuthenticated = cookies.includes("auth=true");
 
-  // اگر کاربر قبلاً وارد شده باشد یا درخواست به فایل‌های استاتیک هست، ادامه بده
+  // اگر کاربر وارد شده باشد یا درخواست به فایل‌های استاتیک هست، ادامه بده
   if (isAuthenticated || url.pathname.startsWith('/assets/')) {
     return next();
   }
@@ -18,12 +18,7 @@ export async function onRequest(context) {
     return new Response(`
       <html>
         <head>
-          <script>
-            // ذخیره وضعیت ورود در LocalStorage
-            if (localStorage.getItem('auth') === 'true') {
-              window.location.href = '/'; // اگر کاربر قبلاً وارد شده، به صفحه اصلی برو
-            }
-          </script>
+          <title>Login</title>
         </head>
         <body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
           <form method="GET">
@@ -37,11 +32,11 @@ export async function onRequest(context) {
     });
   }
 
-  // اگر پسورد درست بود، در LocalStorage وضعیت کاربر را ذخیره می‌کنیم
+  // اگر پسورد درست بود، کوکی auth=true را تنظیم می‌کنیم
   const response = await next();
 
-  // اینجا اسکریپت جاوا اسکریپت را به صفحه اضافه می‌کنیم که وضعیت ورود را ذخیره کند
-  response.headers.append('Content-Security-Policy', "script-src 'self'");
+  // تنظیم کوکی برای جلوگیری از درخواست دوباره پسورد
+  response.headers.append('Set-Cookie', 'auth=true; Path=/; SameSite=Lax');
 
   return response;
 }
