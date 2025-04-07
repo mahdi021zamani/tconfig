@@ -2,7 +2,7 @@ export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
 
-  // بررسی کوکی برای اینکه ببینیم کاربر وارد شده است یا نه
+  // بررسی کوکی‌ها برای اینکه ببینیم کاربر وارد شده است یا نه
   const cookies = request.headers.get("Cookie") || "";
   const isAuthenticated = cookies.includes("auth=true");
 
@@ -13,7 +13,7 @@ export async function onRequest(context) {
 
   const password = url.searchParams.get("password");
 
-  // اگر پسورد صحیح نیست، صفحه ورود نمایش داده می‌شود
+  // اگر پسورد اشتباه وارد شد، صفحه ورود نمایش داده می‌شود
   if (password !== env.PASSWORD) {
     return new Response(`
       <html>
@@ -29,10 +29,10 @@ export async function onRequest(context) {
     });
   }
 
-  // اگر پسورد درست است، کوکی auth=true را ارسال می‌کنیم
+  // اگر پسورد درست بود، کوکی auth=true را ارسال می‌کنیم
   const response = await next();
 
-  // تنظیم کوکی auth برای تمام درخواست‌ها
-  response.headers.append('Set-Cookie', 'auth=true; Path=/; HttpOnly; Secure; SameSite=Strict');
+  // تنظیم کوکی به صورت ساده و بدون HttpOnly یا Secure برای رفع مشکل ارسال کوکی‌ها
+  response.headers.append('Set-Cookie', 'auth=true; Path=/; SameSite=Lax');
   return response;
 }
