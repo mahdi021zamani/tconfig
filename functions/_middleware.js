@@ -11,10 +11,10 @@ export async function onRequest(context) {
     return next();
   }
 
-  // اگر پسورد وارد شده است، بررسی می‌کنیم
+  // بررسی اینکه پسورد وارد شده است
   const password = url.searchParams.get("password");
 
-  // اگر پسورد صحیح نیست، صفحه ورود نمایش داده می‌شود
+  // اگر پسورد اشتباه وارد شد، صفحه ورود نمایش داده می‌شود
   if (password !== env.PASSWORD) {
     return new Response(`
       <html>
@@ -37,7 +37,7 @@ export async function onRequest(context) {
   const response = await next();
 
   // تنظیم کوکی برای جلوگیری از درخواست دوباره پسورد
-  response.headers.append('Set-Cookie', 'auth=true; Path=/; SameSite=Lax; Max-Age=86400');
+  response.headers.append('Set-Cookie', 'auth=true; Path=/; SameSite=Lax; Max-Age=86400'); // 86400 ثانیه معادل یک روز
 
   return response;
 }
