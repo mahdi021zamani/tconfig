@@ -2,18 +2,18 @@ export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
 
-  // بررسی کوکی برای اینکه ببینیم کاربر قبلاً وارد شده است یا نه
+  // بررسی کوکی برای اینکه ببینیم کاربر وارد شده است یا نه
   const cookies = request.headers.get("Cookie") || "";
   const isAuthenticated = cookies.includes("auth=true");
 
-  // اگر کاربر قبلاً وارد شده است یا درخواست به فایل‌های استاتیک هست، ادامه بده
+  // اگر کاربر وارد شده باشد یا درخواست به فایل‌های استاتیک هست، ادامه بده
   if (isAuthenticated || url.pathname.startsWith('/assets/')) {
     return next();
   }
 
   const password = url.searchParams.get("password");
 
-  // اگر پسورد درست نیست، صفحه ورود نمایش داده می‌شود
+  // اگر پسورد صحیح نیست، صفحه ورود نمایش داده می‌شود
   if (password !== env.PASSWORD) {
     return new Response(`
       <html>
@@ -29,10 +29,10 @@ export async function onRequest(context) {
     });
   }
 
-  // اگر پسورد درست بود، کوکی auth=true را ارسال کن
+  // اگر پسورد درست است، کوکی auth=true را ارسال می‌کنیم
   const response = await next();
 
-  // تنظیم کوکی که به مرورگر ارسال می‌شود
+  // تنظیم کوکی auth برای تمام درخواست‌ها
   response.headers.append('Set-Cookie', 'auth=true; Path=/; HttpOnly; Secure; SameSite=Strict');
   return response;
 }
