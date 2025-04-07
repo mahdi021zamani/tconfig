@@ -2,11 +2,11 @@ export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
 
-  // بررسی کوکی برای اینکه ببینیم کاربر قبلاً وارد شده است یا نه
+  // بررسی کوکی برای اینکه ببینیم کاربر وارد شده است یا نه
   const cookies = request.headers.get("Cookie") || "";
   const isAuthenticated = cookies.includes("auth=true");
 
-  // اگر کاربر قبلاً وارد شده، به مسیر بعدی برو
+  // اگر کاربر قبلاً وارد شده است یا درخواستی برای فایل‌های استاتیک باشد، به مسیر بعدی برو
   if (isAuthenticated || url.pathname.startsWith('/assets/')) {
     return next();
   }
@@ -31,6 +31,8 @@ export async function onRequest(context) {
 
   // اگر پسورد درست بود، کوکی auth را تنظیم کن و ادامه بده
   const response = await next();
+
+  // اینجا تغییراتی انجام می‌دهیم که کوکی به درستی تنظیم شود
   response.headers.append('Set-Cookie', 'auth=true; Path=/; HttpOnly; Secure; SameSite=Strict');
   return response;
 }
