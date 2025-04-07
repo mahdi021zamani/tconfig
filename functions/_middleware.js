@@ -2,13 +2,13 @@ export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
 
-  // بررسی اینکه آیا کوکی ورود وجود دارد
-  const cookies = request.headers.get("Cookie");
-  const isAuthenticated = cookies && cookies.includes("auth=true");
+  // بررسی کوکی برای اینکه ببینیم کاربر قبلاً وارد شده است یا نه
+  const cookies = request.headers.get("Cookie") || "";
+  const isAuthenticated = cookies.includes("auth=true");
 
-  // اگر کاربر وارد شده است، درخواست را به ادامه مسیر بفرست
+  // اگر کاربر قبلاً وارد شده، به مسیر بعدی برو
   if (isAuthenticated || url.pathname.startsWith('/assets/')) {
-    return next(); // ادامه بده به فایل استاتیک بعدی یا مسیر اصلی
+    return next();
   }
 
   const password = url.searchParams.get("password");
@@ -29,7 +29,7 @@ export async function onRequest(context) {
     });
   }
 
-  // اگر پسورد درست بود، کوکی را تنظیم می‌کنیم و ادامه می‌دهیم
+  // اگر پسورد درست بود، کوکی auth را تنظیم کن و ادامه بده
   const response = await next();
   response.headers.append('Set-Cookie', 'auth=true; Path=/; HttpOnly; Secure; SameSite=Strict');
   return response;
