@@ -33,6 +33,7 @@ $(document).on('change', '#type, #limit', function(e) {
 });
 
 let source = 'soroushmirzaei/telegram-configs-collector';
+let source = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#sub';
 $(document).on('click', '#get', function(e) {
     e.preventDefault();
     let type = $('#type').val();
