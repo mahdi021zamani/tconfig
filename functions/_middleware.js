@@ -11,9 +11,10 @@ export async function onRequest(context) {
     return next();
   }
 
+  // اگر پسورد وارد شده است، بررسی می‌کنیم
   const password = url.searchParams.get("password");
 
-  // اگر پسورد اشتباه وارد شد، صفحه ورود نمایش داده می‌شود
+  // اگر پسورد صحیح نیست، صفحه ورود نمایش داده می‌شود
   if (password !== env.PASSWORD) {
     return new Response(`
       <html>
@@ -32,11 +33,11 @@ export async function onRequest(context) {
     });
   }
 
-  // اگر پسورد درست بود، کوکی auth=true را تنظیم می‌کنیم
+  // اگر پسورد صحیح بود، کوکی auth=true را تنظیم می‌کنیم
   const response = await next();
 
   // تنظیم کوکی برای جلوگیری از درخواست دوباره پسورد
-  response.headers.append('Set-Cookie', 'auth=true; Path=/; SameSite=Lax');
+  response.headers.append('Set-Cookie', 'auth=true; Path=/; SameSite=Lax; Max-Age=86400');
 
   return response;
 }
