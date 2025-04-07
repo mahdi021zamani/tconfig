@@ -119,6 +119,9 @@ $(document).on('click', '#get', function(e) {
         else if ( type === "ipv6" ) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/layers/ipv6';
         }
+        else if ( type === "shakhsi" ) {
+            config = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#sub
+        }
         else {
             //config = 'https://raw.githubusercontent.com/'+source+'/main/'+(limit === 'lite' ? 'lite/' : '')+'subscriptions/xray/normal/'+type;
             config = 'https://raw.githubusercontent.com/'+source+'/main/protocols/'+type;
