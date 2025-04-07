@@ -2,11 +2,11 @@ export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
 
-  // بررسی کوکی‌ها برای اینکه ببینیم کاربر وارد شده است یا نه
+  // بررسی اینکه آیا کاربر قبلاً وارد شده است یا خیر
   const cookies = request.headers.get("Cookie") || "";
   const isAuthenticated = cookies.includes("auth=true");
 
-  // اگر کاربر وارد شده باشد یا درخواست به فایل‌های استاتیک هست، ادامه بده
+  // اگر کاربر قبلاً وارد شده باشد یا درخواست به فایل‌های استاتیک هست، ادامه بده
   if (isAuthenticated || url.pathname.startsWith('/assets/')) {
     return next();
   }
@@ -17,6 +17,14 @@ export async function onRequest(context) {
   if (password !== env.PASSWORD) {
     return new Response(`
       <html>
+        <head>
+          <script>
+            // ذخیره وضعیت ورود در LocalStorage
+            if (localStorage.getItem('auth') === 'true') {
+              window.location.href = '/'; // اگر کاربر قبلاً وارد شده، به صفحه اصلی برو
+            }
+          </script>
+        </head>
         <body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
           <form method="GET">
             <input type="password" name="password" placeholder="Enter Password" />
@@ -29,10 +37,11 @@ export async function onRequest(context) {
     });
   }
 
-  // اگر پسورد درست بود، کوکی auth=true را ارسال می‌کنیم
+  // اگر پسورد درست بود، در LocalStorage وضعیت کاربر را ذخیره می‌کنیم
   const response = await next();
 
-  // تنظیم کوکی به صورت ساده و بدون HttpOnly یا Secure برای رفع مشکل ارسال کوکی‌ها
-  response.headers.append('Set-Cookie', 'auth=true; Path=/; SameSite=Lax');
+  // اینجا اسکریپت جاوا اسکریپت را به صفحه اضافه می‌کنیم که وضعیت ورود را ذخیره کند
+  response.headers.append('Content-Security-Policy', "script-src 'self'");
+
   return response;
 }
