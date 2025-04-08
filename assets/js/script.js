@@ -116,9 +116,6 @@ $(document).on('click', '#get', function(e) {
         else if ( type === "mix" ) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/splitted/mixed';
         }
-        else if ( type === "ipv4" ) {
-            config = 'https://raw.githubusercontent.com/'+source+'/main/layers/ipv4';
-        }
         else if ( type === "ipv6" ) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/layers/ipv6';
         }
