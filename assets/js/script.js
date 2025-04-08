@@ -80,9 +80,7 @@ if ( normal ) {
     $("#qrModal").modal('show');
     $('#copy').show();
 }
-
 });
-
 $(document).on('click', '#copyFromQR, #copyUrl', function (e) { e.preventDefault(); const input = document.getElementById('subUrl'); input.select(); input.setSelectionRange(0, 99999); document.execCommand('copy'); $("#qrModal").modal('hide'); alert('آدرس در کلیپ‌بورد کپی شد.'); });
 
 function generateCarousel(channel) { let carousel = ""; jQuery.each(channel, function(index, item) { if (typeof item !== "undefined" && (item.title !== null || item.logo !== null)) { carousel += '<a href="https://t.me/' + item.username + '" title="' + item.title + '" target="_blank">'; carousel += '<div class="slide">'; carousel += '<img src="' + item.logo + '">'; carousel += '<p dir="auto">' + item.title + '</p>'; carousel += '</div>'; carousel += '</a>'; } }); $('#slider').html(carousel).slick('refresh'); }
