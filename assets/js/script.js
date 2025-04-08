@@ -70,9 +70,12 @@ $(document).on('click', '#get', function(e) {
     else {
         document.getElementById('get').disabled = false;
         $('#get').html('دریافت کانفیگ');
+        
+        // تنظیم config برای نوع warp
         if ( type === "warp" ) {
             config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
         }
+        // تنظیم config برای پروتکل های دیگر
         else if ( type === "shakhsi2" ) {
             config = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#mahdizamani(sub2)';
         }
@@ -92,8 +95,10 @@ $(document).on('click', '#get', function(e) {
             config = 'https://odd-unit-c94a.mahdi021zamani.workers.dev/';
         }
         else {
+            // در صورتی که هیچکدام از پروتکل ها نباشد، URL عمومی با توجه به نوع انتخاب شده
             config = 'https://raw.githubusercontent.com/'+source+'/main/protocols/'+type;
         }
+        
         $('#qrcode img').attr('src', "https://quickchart.io/qr/?size=300x200&light=ffffff&text="+encodeURIComponent(config));
         $('#qrModal h4').html('QRCode ('+type+')');
         $('#qrcode input').val(config);
