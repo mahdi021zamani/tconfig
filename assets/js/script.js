@@ -2,7 +2,7 @@
 
 $(document).on('click', '#normal, #sub', function(e) { let normal = document.getElementById('normal').checked; if ( normal ) { $('#total').val('25').removeClass('none'); $('#limit').addClass('none'); } else { $('#total').val('all').addClass('none'); $('#limit').removeClass('none'); } });
 
-$(document).on('click', '#copy', function(e) { let text = $('#result textarea').val(); navigator.clipboard.writeText(text).then(() => { $('#copy').text('کپی شد!'); setTimeout(function() { $('#copy').text('کپی کانفیگ'); }, 2500); }).catch(() => { alert('خطا در کپی کردن'); }); });
+$(document).on('click', '#copy', function(e) { let isNormal = document.getElementById('normal').checked; let text; if (isNormal) { text = $('#result textarea').val(); } else { text = $('#subUrl').val(); } navigator.clipboard.writeText(text).then(() => { $('#copy').text('کپی شد!'); setTimeout(function() { $('#copy').text('کپی کانفیگ'); }, 2500); }).catch(() => { alert('خطا در کپی کردن'); }); });
 
 $(document).on('change', '#type, #total, #limit', function(e) { e.preventDefault(); $('#get').trigger('click'); });
 
@@ -72,7 +72,7 @@ if ( normal ) {
         config = 'https://raw.githubusercontent.com/' + source + '/main/protocols/' + type;
     }
 
-    $('#result textarea').val('لینک QR در پنجره باز شده قابل دسترسی است.');
+    $('#result textarea').val('');
     $('#result').removeClass('none');
     $('#qrcode img').attr('src', "https://quickchart.io/qr/?size=300x200&light=ffffff&text=" + encodeURIComponent(config));
     $('#qrModal h4').html('QRCode (' + type + ')');
