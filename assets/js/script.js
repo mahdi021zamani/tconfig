@@ -121,6 +121,8 @@ $(document).on('click', '#get', function(e) {
         }
         else if ( type === "shakhsi1" ) {
             config = 'https://latespeed.fojabiy603.workers.dev/sub/#mahdizamani(sub1)';
+        else if ( type === "warp" ) {
+            config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
         }
         else if ( type === "p.s" ) {
             config = 'https://odd-unit-c94a.mahdi021zamani.workers.dev/';
