@@ -1,6 +1,6 @@
 $(document).on('click', '#normal, #sub', function(e) {
     let normal = document.getElementById('normal').checked;
-    if ( normal ) {
+    if (normal) {
         $('#total').val('25').removeClass('none');
         $('#limit').addClass('none');
     } else {
@@ -33,8 +33,7 @@ $(document).on('click', '#get', function(e) {
     let limit = $('#limit').val();
     let normal = document.getElementById('normal').checked;
 
-    document.getElementById('get').disabled = true;
-    $('#get').html('درحال دریافت ...');
+    $('#get').prop('disabled', true).html('درحال دریافت ...');
     $('#result').addClass('none');
     $('#result textarea').val('');
     $('#customers').addClass('none');
@@ -44,73 +43,80 @@ $(document).on('click', '#get', function(e) {
     let config = "";
     let channel = {};
 
-    if ( normal ) {
-        if ( type === 'warp' ) {
-            config += "warp://auto/?ifp=10-20&ifps=10-20&ifpd=1-2&ifpm=m4#WarpInWarp ⭐️&&detour=warp://auto#Warp 🇮🇷";
+    if (normal) {
+        if (type === 'warp') {
+            config = "warp://auto/?ifp=10-20&ifps=10-20&ifpd=1-2&ifpm=m4#WarpInWarp ⭐️&&detour=warp://auto#Warp 🇮🇷";
             $('#result').removeClass('none');
-            $('#get').html('دریافت کانفیگ');
-            document.getElementById('get').disabled = false;
             $('#result textarea').val(config);
+            $('#get').prop('disabled', false).html('دریافت کانفیگ');
             return;
         }
 
-        let i = 0;
-        jQuery.get('https://raw.githubusercontent.com/' + source + '/main/splitted/mixed?v1.' + Date.now(), function(data) {
-            data = atob(data);
-            data = JSON.parse(data);
+        $.get('https://raw.githubusercontent.com/' + source + '/main/splitted/mixed?v1.' + Date.now())
+            .done(function(data) {
+                try {
+                    data = atob(data);
+                    data = JSON.parse(data);
+                    let i = 0;
+                    $.each(data, function(index, item) {
+                        channel[item.channel.username] = {
+                            title: item.channel.title,
+                            username: item.channel.username,
+                            logo: item.channel.logo
+                        };
 
-            jQuery.each(data, function(index, item) {
-                channel[item.channel.username] = {
-                    title: item.channel.title,
-                    username: item.channel.username,
-                    logo: item.channel.logo,
-                };
+                        if (type !== 'mix' && item.type !== type) return;
 
-                if ( type !== 'mix' && type !== item.type ) return;
+                        if (total !== 'all' && i >= total) return false;
 
-                if ( total !== 'all' && total <= i ) return false;
+                        config += (i !== 0 ? "\n" : "") + item.config;
+                        i++;
+                    });
 
-                if ( i !== 0 ) config += "\n";
-                config += item.config;
-                i++;
+                    if (config !== '') {
+                        $('#result').removeClass('none');
+                        $('#result textarea').val(config);
+                        generateCarousel(channel);
+                        $('#customers').removeClass('none');
+                    }
+                } catch (err) {
+                    console.error("Parsing error:", err);
+                }
+            })
+            .fail(function() {
+                alert("خطا در دریافت اطلاعات");
+            })
+            .always(function() {
+                $('#get').prop('disabled', false).html('دریافت کانفیگ');
             });
 
-            document.getElementById('get').disabled = false;
-            $('#get').html('دریافت کانفیگ');
-
-            if ( config !== '' ) {
-                $('#result').removeClass('none');
-                $('#result textarea').val(config);
-                generateCarousel(channel);
-                $('#customers').removeClass('none');
-            }
-        }).fail(function() {
-            document.getElementById('get').disabled = false;
-            $('#get').html('دریافت کانفیگ');
-            $('#result').addClass('none');
-            $('#result textarea').val('');
-            $('#customers').addClass('none');
-            $('#slider').html('');
-        });
-
     } else {
-        // حالت ساب‌اسکریپشن
-        if (type === "warp") {
-            config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
-        } else if (type === "shakhsi2") {
-            config = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#mahdizamani(sub2)';
-        } else if (type === "mix") {
-            config = 'https://raw.githubusercontent.com/' + source + '/main/splitted/mixed';
-        } else if (type === "ipv4") {
-            config = 'https://raw.githubusercontent.com/' + source + '/main/layers/ipv4';
-        } else if (type === "ipv6") {
-            config = 'https://raw.githubusercontent.com/' + source + '/main/layers/ipv6';
-        } else if (type === "shakhsi1") {
-            config = 'https://latespeed.fojabiy603.workers.dev/sub/#mahdizamani(sub1)';
-        } else if (type === "p.s") {
-            config = 'https://odd-unit-c94a.mahdi021zamani.workers.dev/';
-        } else {
-            config = 'https://raw.githubusercontent.com/' + source + '/main/protocols/' + type;
+        // sub mode
+        switch (type) {
+            case "warp":
+                config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
+                break;
+            case "shakhsi2":
+                config = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#mahdizamani(sub2)';
+                break;
+            case "mix":
+                config = 'https://raw.githubusercontent.com/' + source + '/main/splitted/mixed';
+                break;
+            case "ipv4":
+                config = 'https://raw.githubusercontent.com/' + source + '/main/layers/ipv4';
+                break;
+            case "ipv6":
+                config = 'https://raw.githubusercontent.com/' + source + '/main/layers/ipv6';
+                break;
+            case "shakhsi1":
+                config = 'https://latespeed.fojabiy603.workers.dev/sub/#mahdizamani(sub1)';
+                break;
+            case "p.s":
+                config = 'https://odd-unit-c94a.mahdi021zamani.workers.dev/';
+                break;
+            default:
+                config = 'https://raw.githubusercontent.com/' + source + '/main/protocols/' + type;
+                break;
         }
 
         $('#qrcode img').attr('src', "https://quickchart.io/qr/?size=300x200&light=ffffff&text=" + encodeURIComponent(config));
@@ -118,11 +124,12 @@ $(document).on('click', '#get', function(e) {
         $('#qrcode input').val(config);
         $('#result textarea').val(config);
         $('#result').removeClass('none');
+        $('#get').prop('disabled', false).html('دریافت کانفیگ');
         $("#qrModal").modal('show');
     }
 });
 
-$(document).on('click', '#copyFromQR, #copyUrl', function (e) {
+$(document).on('click', '#copyFromQR, #copyUrl', function(e) {
     e.preventDefault();
     const input = document.getElementById('subUrl');
     input.select();
@@ -134,14 +141,14 @@ $(document).on('click', '#copyFromQR, #copyUrl', function (e) {
 
 function generateCarousel(channel) {
     let carousel = "";
-    jQuery.each(channel, function(index, item) {
-        if (typeof item !== "undefined" && (item.title !== null || item.logo !== null)) {
-            carousel += '<a href="https://t.me/' + item.username + '" title="' + item.title + '" target="_blank">';
-            carousel += '<div class="slide">';
-            carousel += '<img src="' + item.logo + '">';
-            carousel += '<p dir="auto">' + item.title + '</p>';
-            carousel += '</div>';
-            carousel += '</a>';
+    $.each(channel, function(index, item) {
+        if (item && (item.title || item.logo)) {
+            carousel += `<a href="https://t.me/${item.username}" title="${item.title}" target="_blank">
+                            <div class="slide">
+                                <img src="${item.logo}">
+                                <p dir="auto">${item.title}</p>
+                            </div>
+                        </a>`;
         }
     });
     $('#slider').html(carousel).slick('refresh');
