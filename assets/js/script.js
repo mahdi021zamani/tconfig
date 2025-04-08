@@ -107,7 +107,7 @@ $(document).on('click', '#get', function(e) {
         $('#get').html('دریافت کانفیگ');
         //type = (type === 'ss' ? 'shadowsocks' : type);
         //config = 'https://raw.githubusercontent.com/'+source+'/main/subscriptions/xray/normal/'+type;
-        else if ( type === "warp" ) {
+        if ( type === "warp" ) {
             config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
         }
         if ( type === "shakhsi2" ) {
@@ -116,17 +116,18 @@ $(document).on('click', '#get', function(e) {
         else if ( type === "mix" ) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/splitted/mixed';
         }
+        else if ( type === "ipv4" ) {
+            config = 'https://raw.githubusercontent.com/'+source+'/main/layers/ipv4';
+        }
         else if ( type === "ipv6" ) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/layers/ipv6';
         }
         else if ( type === "shakhsi1" ) {
             config = 'https://latespeed.fojabiy603.workers.dev/sub/#mahdizamani(sub1)';
-        else if ( type === "warp" ) {
-            config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
         }
         else if ( type === "p.s" ) {
             config = 'https://odd-unit-c94a.mahdi021zamani.workers.dev/';
-       
+
        }
         else {
             //config = 'https://raw.githubusercontent.com/'+source+'/main/'+(limit === 'lite' ? 'lite/' : '')+'subscriptions/xray/normal/'+type;
