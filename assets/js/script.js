@@ -78,6 +78,7 @@ if ( normal ) {
     $('#qrModal h4').html('QRCode (' + type + ')');
     $('#qrcode input').val(config);
     $("#qrModal").modal('show');
+    $('#copy').show();
 }
 
 });
