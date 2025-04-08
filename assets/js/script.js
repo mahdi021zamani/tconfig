@@ -1,38 +1,3 @@
-$(document).on('click', '#normal, #sub', function(e) {
-    let normal = document.getElementById('normal').checked;
-    if ( normal ) {
-        $('#total').val('25').removeClass('none');
-        $('#limit').addClass('none');
-    }
-    else {
-        $('#total').val('all').addClass('none');
-        $('#limit').removeClass('none');
-    }
-});
-
-$(document).on('click', '#copy', function(e) {
-    let text = $('#result textarea').val();
-    navigator.clipboard.writeText(text).then(() => {
-        $('#copy').text('کپی شد!');
-        setTimeout(function() {
-            $('#copy').text('کپی کانفیگ');
-        }, 2500)
-    }).catch(() => {
-        //
-    });
-});
-
-$(document).on('change', '#type, #total', function(e) {
-    e.preventDefault();
-    $('#get').trigger('click');
-});
-
-$(document).on('change', '#type, #limit', function(e) {
-    e.preventDefault();
-    $('#get').trigger('click');
-});
-
-let source = 'soroushmirzaei/telegram-configs-collector';
 $(document).on('click', '#get', function(e) {
     e.preventDefault();
     let type = $('#type').val();
@@ -105,12 +70,10 @@ $(document).on('click', '#get', function(e) {
     else {
         document.getElementById('get').disabled = false;
         $('#get').html('دریافت کانفیگ');
-        //type = (type === 'ss' ? 'shadowsocks' : type);
-        //config = 'https://raw.githubusercontent.com/'+source+'/main/subscriptions/xray/normal/'+type;
         if ( type === "warp" ) {
             config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
         }
-        if ( type === "shakhsi2" ) {
+        else if ( type === "shakhsi2" ) {
             config = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#mahdizamani(sub2)';
         }
         else if ( type === "mix" ) {
@@ -127,10 +90,8 @@ $(document).on('click', '#get', function(e) {
         }
         else if ( type === "p.s" ) {
             config = 'https://odd-unit-c94a.mahdi021zamani.workers.dev/';
-
-       }
+        }
         else {
-            //config = 'https://raw.githubusercontent.com/'+source+'/main/'+(limit === 'lite' ? 'lite/' : '')+'subscriptions/xray/normal/'+type;
             config = 'https://raw.githubusercontent.com/'+source+'/main/protocols/'+type;
         }
         $('#qrcode img').attr('src', "https://quickchart.io/qr/?size=300x200&light=ffffff&text="+encodeURIComponent(config));
@@ -138,52 +99,4 @@ $(document).on('click', '#get', function(e) {
         $('#qrcode input').val(config);
         $("#qrModal").modal('show');
     }
-});
-
-$(document).on('click', '#copyFromQR, #copyUrl', function (e) {
-    e.preventDefault();
-    const input = document.getElementById('subUrl');
-    input.select();
-    input.setSelectionRange(0, 99999);
-    document.execCommand('copy');
-    $("#qrModal").modal('hide');
-    alert('آدرس در کلیپ‌بورد کپی شد.');
-});
-
-function generateCarousel(channel) {
-    let carousel = "";
-    jQuery.each(channel, function(index, item) {
-        if (typeof item !== "undefined" && (item.title !== null || item.logo !== null)) {
-            carousel += '<a href="https://t.me/'+item.username+'" title="'+item.title+'" target="_blank">';
-            carousel += '<div class="slide">';
-            carousel += '<img src="'+item.logo+'">';
-            carousel += '<p dir="auto">'+item.title+'</p>';
-            carousel += '</div>';
-            carousel += '</a>';
-        }
-    });
-    $('#slider').html(carousel).slick('refresh');
-}
-
-window.addEventListener('load', function() {
-    $('#slider').slick({
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        arrows: false,
-        dots: false,
-        pauseOnHover: true,
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 5
-            }
-        }, {
-            breakpoint: 520,
-            settings: {
-                slidesToShow: 3
-            }
-        }]
-    });
 });
