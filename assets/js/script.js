@@ -107,7 +107,7 @@ $(document).on('click', '#get', function(e) {
         $('#get').html('دریافت کانفیگ');
         //type = (type === 'ss' ? 'shadowsocks' : type);
         //config = 'https://raw.githubusercontent.com/'+source+'/main/subscriptions/xray/normal/'+type;
-        else if ( type === "warp" ) {
+        if ( type === "warp" ) {
             config = 'https://mahdi-ircf-ww.mahdi021zamani.workers.dev/';
         }
         if ( type === "shakhsi2" ) {
