@@ -113,9 +113,6 @@ $(document).on('click', '#get', function(e) {
         if ( type === "p.s" ) {
             config = 'https://odd-unit-c94a.mahdi021zamani.workers.dev/';
         }
-        if ( type === "shakhsi1" ) {
-            config = 'https://latespeed.fojabiy603.workers.dev/sub/#mahdizamani(sub1)';
-        }
         if ( type === "shakhsi2" ) {
             config = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#mahdizamani(sub2)';
         }
@@ -127,6 +124,9 @@ $(document).on('click', '#get', function(e) {
         }
         else if ( type === "ipv6" ) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/layers/ipv6';
+        }
+        else if ( type === "shakhsi1" ) {
+            config = 'https://latespeed.fojabiy603.workers.dev/sub/#mahdizamani(sub1)';
        }
         else {
             //config = 'https://raw.githubusercontent.com/'+source+'/main/'+(limit === 'lite' ? 'lite/' : '')+'subscriptions/xray/normal/'+type;
