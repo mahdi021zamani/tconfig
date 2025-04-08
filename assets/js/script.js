@@ -117,8 +117,7 @@ $(document).on('click', '#get', function(e) {
             config = 'https://latespeed.fojabiy603.workers.dev/sub/#mahdizamani(sub1)';
         }
         if ( type === "shakhsi2" ) {
-            config = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#mahdizamani(sub2)
-';
+            config = 'https://vfarid2-3.mahdi021zamani.workers.dev/sub#mahdizamani(sub2)';
         }
         else if ( type === "mix" ) {
             config = 'https://raw.githubusercontent.com/'+source+'/main/splitted/mixed';
