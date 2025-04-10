@@ -4,7 +4,7 @@
 <link href="/assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
 <link href="/assets/css/vazir.css" rel="stylesheet" />
 <link href="/assets/css/style.css?v1.5" rel="stylesheet" />
-    <title>MAHDI | کانفیگ رایگان</title>
+    <title>MAHDI | نرم‌افزارهای اندروید</title>
     <meta name="description" content="آی پی سالم و تمیز برای کلودفلر (کلادفلر) جهت دسترسی به اینترنت آزاد" />
     <meta name="keywords" content="کلودفلر, کلادفلر, cloudflare, cf, آی پی تمیز, آی پی سالم, اسکن آی پی" />
     <meta name="robots" content="index,follow,noodp" />
@@ -36,14 +36,149 @@
             <li><a href="mahdi021zamani@gmail.com">معرفی</a></li>
             <li class="active"><a href="./index.html">کانفیگ رایگان</a></li>
             <li class="pull-left"><a href="mahdi021zamani@gmail.com">تماس‌باما</a></li>
-
-
-
-
 </div>
 
     <ul class="nav nav-pills">
         <li class="active"><a href="https://location-58t.pages.dev/">پروتکل‌ها</a></li>
         <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
     </ul>
-       
+  <style>
+    body {
+      background-color: #e0e0e0;
+      font-family: Tahoma, sans-serif;
+      direction: rtl;
+      text-align: right;
+      padding: 2rem;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 800px;
+      margin: auto;
+    }
+    li {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .links {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+      color: #007bff;
+      text-decoration: none;
+      width: 120px;
+    }
+    .link-item img {
+      width: 20px;
+      height: 20px;
+    }
+    .link-item.inactive {
+      opacity: 0.4;
+      pointer-events: none;
+      cursor: default;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .telegram {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .telegram img {
+      width: 30px;
+      margin: 0.5rem 0;
+    }
+    .qr {
+      margin-top: 0.5rem;
+      width: 120px;
+    }
+  </style>
+</head>
+<body>
+  <h1>نرم‌افزارهای اندروید</h1>
+  <ul>
+    ${generateAppList()}
+  </ul>
+
+  <footer>
+    توسط: mahdizamani
+    <div class="telegram">
+      <span>ارتباط با من از طریق تلگرام:</span>
+      <a href="https://t.me/mahdione71" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
+      </a>
+      <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://t.me/mahdione71" alt="QR Code">
+    </div>
+  </footer>
+</body>
+</html>
+    `;
+    return new Response(html, {
+      headers: {
+        "content-type": "text/html;charset=UTF-8",
+      },
+    });
+  },
+};
+
+function generateAppList() {
+  const playIcon = "https://cdn-icons-png.flaticon.com/512/300/300218.png";
+  const githubIcon = "https://cdn-icons-png.flaticon.com/512/25/25231.png";
+
+  const apps = [
+    { name: "V2rayNG", playstore: "https://play.google.com/store/apps/details?id=com.v2ray.ang", github: "https://github.com/2dust/v2rayNG/releases" },
+    { name: "MahsaNG", playstore: "https://play.google.com/store/apps/details?id=com.MahsaNet.MahsaNG", github: "https://github.com/GFW-knocker/mahsang/releases/latest" },
+    { name: "Hiddify", playstore: "https://play.google.com/store/apps/details?id=app.hiddify.com", github: "https://github.com/hiddify/hiddify-next/releases/latest" },
+    { name: "Oblivion", playstore: "https://play.google.com/store/apps/details?id=org.bepass.oblivion", github: "https://github.com/bepass-org/oblivion/releases/latest" },
+    { name: "Matsuri", playstore: "https://play.google.com/store/apps/details?id=moe.matsuri.lite", github: "https://github.com/MatsuriDayo/Matsuri/releases" },
+    { name: "NekoBox", playstore: "https://play.google.com/store/apps/details?id=moe.nb4a", github: "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases" },
+    { name: "Begzar", github: "https://github.com/Begzar/BegzarApp/releases/latest" },
+    { name: "Purlite", github: "https://github.com/davudsedft/purlite/releases/latest" },
+    { name: "NapsternetV", playstore: "https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv" },
+    { name: "v2flyNG", playstore: "https://play.google.com/store/apps/details?id=com.v2ray.v2fly", github: "https://github.com/2dust/v2flyNG/releases" },
+    { name: "ARMod", playstore: "https://play.google.com/store/apps/details?id=com.artunnel57" },
+  ];
+
+  return apps.map(app => {
+    const githubLink = app.github
+      ? `<a href="${app.github}" target="_blank" class="link-item"><img src="${githubIcon}" alt="GitHub" />GitHub</a>`
+      : `<span class="link-item inactive"><img src="${githubIcon}" alt="GitHub" />GitHub</span>`;
+
+    const playstoreLink = app.playstore
+      ? `<a href="${app.playstore}" target="_blank" class="link-item"><img src="${playIcon}" alt="Play Store" />Play Store</a>`
+      : `<span class="link-item inactive"><img src="${playIcon}" alt="Play Store" />Play Store</span>`;
+
+    return `
+      <li>
+        <div class="name">${app.name}</div>
+        <div class="links">
+          ${githubLink}
+          ${playstoreLink}
+        </div>
+      </li>`;
+  }).join("");
+}      
