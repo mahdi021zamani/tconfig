@@ -1,48 +1,88 @@
-<!DOCTYPE html><html lang="fa">
+export default {
+  async fetch(request) {
+    const html = `
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="/assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
-<link href="/assets/css/vazir.css" rel="stylesheet" />
-<link href="/assets/css/style.css?v1.5" rel="stylesheet" />
-    <title>MAHDI | نرم‌افزارهای اندروید</title>
-    <meta name="description" content="آی پی سالم و تمیز برای کلودفلر (کلادفلر) جهت دسترسی به اینترنت آزاد" />
-    <meta name="keywords" content="کلودفلر, کلادفلر, cloudflare, cf, آی پی تمیز, آی پی سالم, اسکن آی پی" />
-    <meta name="robots" content="index,follow,noodp" />
-    <meta name="googlebot" content="index,follow" />
-    <meta name="theme-color" content="#ff7900" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico?v1.1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نرم‌افزارهای اندروید</title>
+  <style>
+    body {
+      background-color: #e0e0e0;
+      font-family: Tahoma, sans-serif;
+      direction: rtl;
+      text-align: right;
+      padding: 2rem;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 800px;
+      margin: auto;
+    }
+    li {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .links {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+      color: #007bff;
+      text-decoration: none;
+      width: 120px;
+    }
+    .link-item img {
+      width: 20px;
+      height: 20px;
+    }
+    .link-item.inactive {
+      opacity: 0.4;
+      pointer-events: none;
+      cursor: default;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .telegram {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .telegram img {
+      width: 30px;
+      margin: 0.5rem 0;
+    }
+    .qr {
+      margin-top: 0.5rem;
+      width: 120px;
+    }
+  </style>
 </head>
-<body>
-<nav class="navbar navbar-inverse">
-    <div class="container">
-        <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
-            <a href=".">
-                <img src="./assets/img/cflogo.png?v1.1" alt="logo" />
-                <h1>مهدی♡زمانی</h1>
-            </a>
-        </div>
-    </div>
-</nav>
-<div class="clearfix"></div>
-<div class="container">
-    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
-
-        <ul class="nav nav-tabs">
-            <li><a href="mahdi021zamani@gmail.com">معرفی</a></li>
-            <li class="active"><a href="./index.html">کانفیگ رایگان</a></li>
-            <li class="pull-left"><a href="mahdi021zamani@gmail.com">تماس‌باما</a></li>
-</div>
-
-    <ul class="nav nav-pills">
-        <li class="active"><a href="https://location-58t.pages.dev/">پروتکل‌ها</a></li>
-        <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
-    </ul>
- 
 <body>
   <h1>نرم‌افزارهای اندروید</h1>
   <ul>
@@ -106,4 +146,4 @@ function generateAppList() {
         </div>
       </li>`;
   }).join("");
-}      
+}
