@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="fa">
+<!DOCTYPE html><html lang="fa">
 <head>
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
-    <link href="/assets/css/vazir.css" rel="stylesheet" />
-    <link href="/assets/css/style.css?v1.5" rel="stylesheet" />
+<link href="/assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
+<link href="/assets/css/vazir.css" rel="stylesheet" />
+<link href="/assets/css/style.css?v1.5" rel="stylesheet" />
     <title>MAHDI | کانفیگ رایگان</title>
     <meta name="description" content="آی پی سالم و تمیز برای کلودفلر (کلادفلر) جهت دسترسی به اینترنت آزاد" />
     <meta name="keywords" content="کلودفلر, کلادفلر, cloudflare, cf, آی پی تمیز, آی پی سالم, اسکن آی پی" />
@@ -29,7 +28,6 @@
         </div>
     </div>
 </nav>
-
 <div class="clearfix"></div>
 <div class="container">
     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
@@ -37,29 +35,124 @@
             <li><a href="mahdi021zamani@gmail.com">معرفی</a></li>
             <li class="active"><a href="./index.html">کانفیگ رایگان</a></li>
             <li class="pull-left"><a href="mahdi021zamani@gmail.com">تماس‌باما</a></li>
-        </ul>
-        <div class="clearfix"></div>
+        </ul><div class="clearfix"></div>
 
-        <div class="alert alert-info" id="defAlert">
-            <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده دسترسی داشته باشین. این‌کانفیگ‌ها به‌صورت خودکار و منظم، بدون دخل‌وتصرف از یه‌سری <a href="mahdi021zamani@gmail.com" target="_blank">کانال تلگرامی</a> جمع‌آوری میشن و برای رعایت مسائل امنیتی توصیه میشه تنها برای مصارف عادی ازشون استفاده کنین.</p>
-        </div>
-
-        <ul class="nav nav-pills">
-            <li class="active"><a href="https://tconfig.pages.dev/">پروتکل‌ها</a></li>
-            <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
-        </ul>
-
-        <div class="clearfix" style="margin-top: 2rem;"></div>
-
-        <!-- این بخش iframe صفحه نرم‌افزارهای اندروید رو نشون میده -->
-        <iframe src="https://software.mahdi021zamani.workers.dev/"
-                width="100%"
-                height="1600"
-                style="border:none; border-radius: 12px;"
-                loading="lazy">
-        </iframe>
-        <!-- پایان iframe -->
+    <div class="alert alert-info" id="defAlert">
+        <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده دسترسی داشته باشین. این‌کانفیگ‌ها به‌صورت خودکار و منظم، بدون دخل‌وتصرف از یه‌سری <a href="mahdi021zamani@gmail.com" target="_blank">کانال تلگرامی</a> جمع‌آوری میشن و برای رعایت مسائل امنیتی توصیه میشه تنها برای مصارف عادی ازشون استفاده کنین.</p>
     </div>
+
+    <ul class="nav nav-pills">
+        <li class="active"><a href="https://location-58t.pages.dev/">پروتکل‌ها</a></li>
+        <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
+    </ul>
+
+    <div class="form-group">
+        <select class="form-control" id="type">
+            <option value="mix">همه‌نوع کانفیگ</option>
+            <option value="reality">کانفیگ REALITY</option>
+            <option value="vless">کانفیگ VLESS</option>
+            <option value="vmess">کانفیگ VMESS</option>
+            <option value="shadowsocks">کانفیگ SHADOWSOCKS</option>
+            <option value="hysteria">کانفیگ HYSTERIA2</option>
+            <option value="trojan">کانفیگ TROJAN</option>
+            <option value="juicity">کانفیگ JUICITY</option>
+            <option value="tuic">کانفیگ TUIC</option>
+            <option value="warp">کانفیگ WARP</option>
+            <option value="ipv4">کانفیگ IPv4</option>
+            <option value="ipv6">کانفیگ IPv6</option>
+          <option value="p.s"> کانفیگ پیشنهادی</option>
+        <option value="shakhsi1">پنل شخصی 1</option>
+      <option value="shakhsi2"> پنل شخصی 2 </option>         
+        </select>
+        <select class="form-control none" id="total">
+            <option value="10">حداکثر ۱۰ مورد</option>
+            <option value="25" selected>حداکثر ۲۵ مورد</option>
+            <option value="50">حداکثر ۵۰ مورد</option>
+            <option value="all">همه موارد</option>
+        </select>
+        <select class="form-control" id="limit" disabled>
+            <option value="lite" disabled>نسخه سبک</option>
+            <option value="full" selected>نسخه کامل</option>
+        </select>
+    </div>
+
+    <div class="betaVersion rangeSelector">
+        <input type="radio" name="export" id="normal" value="1" disabled />
+        <label for="normal">به‌صورت عادی</label>
+        <div class="clearfix"></div>
+        <input type="radio" name="export" id="sub" value="1" checked />
+        <label for="sub">لینک ساب</label>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="btn btn-block btn-default" id="get">دریافت کانفیگ</div>
+
+    <div class="clearfix"></div>
+
+    <div class="fullBox none" id="result">
+        <textarea class="form-control dirLeft"></textarea>
+        <div class="clearfix"></div>
+        <div class="btn btn-link btn-xs" id="copy">کپی کانفیگ</div>
+        <div class="clearfix"></div>
+        <div class="alert alert-warning customers" id="customers">
+            <small class="label label-warning">تامین‌کنندگان</small>
+            <div class="clearfix"></div>
+            <div class="customer-logos slider" id="slider"></div>
+        </div>
+    </div>
+
+    <br>
+
+    <div id="qrModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title dirLeft">QRCode</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="qrcode" id="qrcode">
+                        <a href="javascript:;" id="copyFromQR">
+                            <img src="" alt="qrcode" />
+                        </a>
+                        <input id="subUrl" class="form-control dirLeft" value="" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="copyUrl">کپی آدرس</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="mahdi021zamani@gmail.com" class="btn btn-link btn-normal btn-lg btn-outline donateLink"></a>
+    </div>
+
+    <!-- رپ پایین صفحه -->
+<div class="container mt-5 text-center">
+    <ul class="nav nav-pills nav-stacked d-inline-block" style="display: inline-block; text-align: right;">
+        <li class="active" style="margin-bottom: 10px;">
+            <a  <a class="nav-link" href="https://odd-unit-c94a.mahdi021zamani.workers.dev/">لینک ساب شخصی برای شرایط خاص</a>
+        </li>
+        <li>
+ <a class="nav-link" href="https://vfarid2-3.mahdi021zamani.workers.dev/sub#sub">لینک ساب شخصی برای شرایط خاص</a>
+        </li>
+        <li>
+           <a class="nav-link" href="https://warp-6nf.pages.dev/
+">WARP Generator v2.0</a>
+        </li>
+    </ul>
+</div>
+
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/slick-carousel_1.6.0.js"></script>
+    <script src="./assets/js/script.js?v1.7"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</div>
+
 </div>
 </body>
 </html>
