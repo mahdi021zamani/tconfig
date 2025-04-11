@@ -37,95 +37,133 @@
             <li class="pull-left"><a href="mahdi021zamani@gmail.com">تماس‌باما</a></li>
         </ul><div class="clearfix"></div>
 
-    <div class="alert alert-info" id="defAlert">
-        <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده دسترسی داشته باشین. این‌کانفیگ‌ها به‌صورت خودکار و منظم، بدون دخل‌وتصرف از یه‌سری <a href="mahdi021zamani@gmail.com" target="_blank">کانال تلگرامی</a> جمع‌آوری میشن و برای رعایت مسائل امنیتی توصیه میشه تنها برای مصارف عادی ازشون استفاده کنین.</p>
-    </div>
-
-    <ul class="nav nav-pills">
-        <li class="active"><a href="https://location-58t.pages.dev/">پروتکل‌ها</a></li>
-        <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
-    </ul>
-
-    <div class="form-group">
-        <select class="form-control" id="type">
-            <option value="mix">همه‌نوع کانفیگ</option>
-            <option value="reality">کانفیگ REALITY</option>
-            <option value="vless">کانفیگ VLESS</option>
-            <option value="vmess">کانفیگ VMESS</option>
-            <option value="shadowsocks">کانفیگ SHADOWSOCKS</option>
-            <option value="hysteria">کانفیگ HYSTERIA2</option>
-            <option value="trojan">کانفیگ TROJAN</option>
-            <option value="juicity">کانفیگ JUICITY</option>
-            <option value="tuic">کانفیگ TUIC</option>
-            <option value="warp">کانفیگ WARP</option>
-            <option value="ipv4">کانفیگ IPv4</option>
-            <option value="ipv6">کانفیگ IPv6</option>                    
-        </select>
-        <select class="form-control none" id="total">
-            <option value="10">حداکثر ۱۰ مورد</option>
-            <option value="25" selected>حداکثر ۲۵ مورد</option>
-            <option value="50">حداکثر ۵۰ مورد</option>
-            <option value="all">همه موارد</option>
-        </select>
-        <select class="form-control" id="limit" disabled>
-            <option value="lite" disabled>نسخه سبک</option>
-            <option value="full" selected>نسخه کامل</option>
-        </select>
-    </div>
-
-    <div class="betaVersion rangeSelector">
-        <input type="radio" name="export" id="normal" value="1" disabled />
-        <label for="normal">به‌صورت عادی</label>
-        <div class="clearfix"></div>
-        <input type="radio" name="export" id="sub" value="1" checked />
-        <label for="sub">لینک ساب</label>
-    </div>
-
-    <div class="clearfix"></div>
-
-    <div class="btn btn-block btn-default" id="get">دریافت کانفیگ</div>
-
-    <div class="clearfix"></div>
-
-    <div class="fullBox none" id="result">
-        <textarea class="form-control dirLeft"></textarea>
-        <div class="clearfix"></div>
-        <div class="btn btn-link btn-xs" id="copy">کپی کانفیگ</div>
-        <div class="clearfix"></div>
-        <div class="alert alert-warning customers" id="customers">
-            <small class="label label-warning">تامین‌کنندگان</small>
-            <div class="clearfix"></div>
-            <div class="customer-logos slider" id="slider"></div>
+        <div class="alert alert-info" id="defAlert">
+            <p>توسط این‌ابزار می‌تونین به کانفیگ‌های رایگان گردآوری‌شده دسترسی داشته باشین. این‌کانفیگ‌ها به‌صورت خودکار و منظم، بدون دخل‌وتصرف از یه‌سری <a href="mahdi021zamani@gmail.com" target="_blank">کانال تلگرامی</a> جمع‌آوری میشن و برای رعایت مسائل امنیتی توصیه میشه تنها برای مصارف عادی ازشون استفاده کنین.</p>
         </div>
-    </div>
 
-    <br>
+        <ul class="nav nav-pills">
+            <li class="active"><a href="https://location-58t.pages.dev/">پروتکل‌ها</a></li>
+            <li><a href="https://location-58t.pages.dev/">لوکیشن‌ها</a></li>
+        </ul>
 
-    <div id="qrModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title dirLeft">QRCode</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="qrcode" id="qrcode">
-                        <a href="javascript:;" id="copyFromQR">
-                            <img src="" alt="qrcode" />
-                        </a>
-                        <input id="subUrl" class="form-control dirLeft" value="" />
+        <div class="form-group">
+            <select class="form-control" id="type">
+                <option value="mix">همه‌نوع کانفیگ</option>
+                <option value="reality">کانفیگ REALITY</option>
+                <option value="vless">کانفیگ VLESS</option>
+                <option value="vmess">کانفیگ VMESS</option>
+                <option value="shadowsocks">کانفیگ SHADOWSOCKS</option>
+                <option value="hysteria">کانفیگ HYSTERIA2</option>
+                <option value="trojan">کانفیگ TROJAN</option>
+                <option value="juicity">کانفیگ JUICITY</option>
+                <option value="tuic">کانفیگ TUIC</option>
+                <option value="warp">کانفیگ WARP</option>
+                <option value="ipv4">کانفیگ IPv4</option>
+                <option value="ipv6">کانفیگ IPv6</option>                    
+            </select>
+            <select class="form-control none" id="total">
+                <option value="10">حداکثر ۱۰ مورد</option>
+                <option value="25" selected>حداکثر ۲۵ مورد</option>
+                <option value="50">حداکثر ۵۰ مورد</option>
+                <option value="all">همه موارد</option>
+            </select>
+            <select class="form-control" id="limit" disabled>
+                <option value="lite" disabled>نسخه سبک</option>
+                <option value="full" selected>نسخه کامل</option>
+            </select>
+        </div>
+
+        <div class="betaVersion rangeSelector">
+            <input type="radio" name="export" id="normal" value="1" disabled />
+            <label for="normal">به‌صورت عادی</label>
+            <div class="clearfix"></div>
+            <input type="radio" name="export" id="sub" value="1" checked />
+            <label for="sub">لینک ساب</label>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="btn btn-block btn-default" id="get">دریافت کانفیگ</div>
+
+        <div class="clearfix"></div>
+
+        <div class="fullBox none" id="result">
+            <textarea class="form-control dirLeft"></textarea>
+            <div class="clearfix"></div>
+            <div class="btn btn-link btn-xs" id="copy">کپی کانفیگ</div>
+            <div class="clearfix"></div>
+            <div class="alert alert-warning customers" id="customers">
+                <small class="label label-warning">تامین‌کنندگان</small>
+                <div class="clearfix"></div>
+                <div class="customer-logos slider" id="slider"></div>
+            </div>
+        </div>
+
+        <br>
+
+        <div id="qrModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title dirLeft">QRCode</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="qrcode" id="qrcode">
+                            <a href="javascript:;" id="copyFromQR">
+                                <img src="" alt="qrcode" />
+                            </a>
+                            <input id="subUrl" class="form-control dirLeft" value="" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="copyUrl">کپی آدرس</button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" id="copyUrl">کپی آدرس</button>
-                        
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/slick-carousel_1.6.0.js"></script>
-    <script src="./assets/js/script.js?v1.7"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+            </div>
+        </div>
+
+        <!-- Footer از اسکریپت اول -->
+        <style>
+            footer {
+                text-align: center;
+                margin-top: 3rem;
+                font-size: 0.95rem;
+                color: #555;
+            }
+            .telegram {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 1rem;
+            }
+            .telegram img {
+                width: 30px;
+                margin: 0.5rem 0;
+            }
+            .qr {
+                margin-top: 0.5rem;
+                width: 120px;
+            }
+        </style>
+        <footer>
+            توسط: mahdizamani
+            <div class="telegram">
+                <span>ارتباط با من از طریق تلگرام:</span>
+                <a href="https://t.me/mahdione71" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
+                </a>
+                <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://t.me/mahdione71" alt="QR Code">
+            </div>
+        </footer>
+
+    </div>
 </div>
 
-</div>
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/slick-carousel_1.6.0.js"></script>
+<script src="./assets/js/script.js?v1.7"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
